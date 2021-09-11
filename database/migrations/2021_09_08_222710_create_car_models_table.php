@@ -22,6 +22,7 @@ class CreateCarModelsTable extends Migration
             $table->year('produced_from')->nullable();
             $table->year('produced_to')->nullable();
             $table->json('gallery')->nullable();
+            $table->boolean('paused')->default(true);
 
             $table->timestamps();
 

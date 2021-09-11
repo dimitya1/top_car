@@ -20,4 +20,20 @@ class CarModel extends Model
     {
         return $this->belongsTo(CarBrand::class);
     }
+
+    public const FUEL_TYPE_PETROL = 'petrol';
+    public const FUEL_TYPE_DIESEL = 'diesel';
+    public const FUEL_TYPE_GAS = 'gas';
+    public const FUEL_TYPE_ELECTRIC = 'electric';
+    public const FUEL_TYPE_HYBRID = 'hybrid';
+    public const FUEL_TYPE_OTHER = 'other';
+
+    public static array $fuelTypes = [
+        self::FUEL_TYPE_PETROL,
+        self::FUEL_TYPE_DIESEL,
+        self::FUEL_TYPE_GAS,
+        self::FUEL_TYPE_ELECTRIC,
+        self::FUEL_TYPE_HYBRID,
+        self::FUEL_TYPE_OTHER,
+    ];
 }

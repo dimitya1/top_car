@@ -18,6 +18,7 @@ class CreateCarBrandsTable extends Migration
 
             $table->string('name')->unique();
             $table->string('logo')->nullable();
+            $table->boolean('paused')->default(true);
 
             $table->timestamps();
         });
