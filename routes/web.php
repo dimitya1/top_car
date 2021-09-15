@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthorizationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('pages.home');
+});
+
+Route::prefix('authorisation')->name('auth.')->group(function () {
+    Route::post('login', [AuthorizationController::class, 'login'])->name('login');
+    Route::post('register', [AuthorizationController::class, 'register'])->name('register');
+    Route::post('logout', [AuthorizationController::class, 'logout'])->name('logout');
 });
