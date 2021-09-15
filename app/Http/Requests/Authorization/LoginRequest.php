@@ -9,7 +9,7 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'login' => ['required', 'email', 'exists:users,email'],
+            'login'    => ['required', 'email', 'exists:users,email'],
             'password' => ['required'],
         ];
     }
@@ -17,7 +17,8 @@ class LoginRequest extends FormRequest
     public function attributes(): array
     {
         return [
-
+            'login'    => __('app.authorization.login'),
+            'password' => __('app.authorization.password'),
         ];
     }
 }
