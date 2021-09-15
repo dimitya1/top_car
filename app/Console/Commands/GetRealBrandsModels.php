@@ -4,6 +4,8 @@ namespace App\Console\Commands;
 
 use App\Models\CarBrand;
 use App\Models\CarModel;
+use App\Services\CarBrandService;
+use App\Services\CarModelService;
 use Illuminate\Console\Command;
 
 class GetRealBrandsModels extends Command
@@ -32,15 +34,15 @@ class GetRealBrandsModels extends Command
         parent::__construct();
     }
 
-    public function handle()
+    public function handle(CarBrandService $carBrandService, CarModelService $carModelService)
     {
         $carsData = json_decode(file_get_contents(base_path('car-list.json')), true);
 
         foreach ($carsData as $brandWithModels) {
-            $brand = CarBrand::create(['name' => $brandWithModels['brand']]);
+            $brand = $carBrandService->save(['name' => $brandWithModels['brand']]);
             foreach ($brandWithModels['models'] as $model) {
                 try {
-                    CarModel::create(['name' => $model, 'car_brand_id' => $brand->id]);
+                    $carModelService->save(['name' => $model, 'car_brand_id' => $brand->id]);
                 } catch (\Exception) {}
             }
         }

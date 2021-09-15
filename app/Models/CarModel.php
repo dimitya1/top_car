@@ -11,15 +11,13 @@ class CarModel extends Model
 {
     use HasFactory;
 
-    public function reviews(): hasMany
-    {
-        return $this->hasMany(Review::class);
-    }
-
-    public function model(): belongsTo
-    {
-        return $this->belongsTo(CarBrand::class);
-    }
+    protected $fillable = [
+        'name',
+        'produced_from',
+        'produced_to',
+        'gallery',
+        'paused',
+    ];
 
     public const FUEL_TYPE_PETROL = 'petrol';
     public const FUEL_TYPE_DIESEL = 'diesel';
@@ -36,4 +34,14 @@ class CarModel extends Model
         self::FUEL_TYPE_HYBRID,
         self::FUEL_TYPE_OTHER,
     ];
+
+    public function reviews(): hasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function model(): belongsTo
+    {
+        return $this->belongsTo(CarBrand::class);
+    }
 }

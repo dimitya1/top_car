@@ -11,6 +11,12 @@ class CarBrand extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'logo',
+        'paused',
+    ];
+
     public function models(): hasMany
     {
         return $this->hasMany(CarModel::class);
