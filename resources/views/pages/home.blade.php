@@ -1,119 +1,124 @@
 @extends('layouts.app')
 @section('content')
-    <!-- This example requires Tailwind CSS v2.0+ -->
-    <div class="relative bg-white overflow-hidden">
-        <div class="max-w-7xl mx-auto">
-            <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-                <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                    <polygon points="50,0 100,0 50,100 0,100" />
-                </svg>
-
-                <div>
-                    <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
-                        <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
-                            <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
-                                <div class="flex items-center justify-between w-full md:w-auto">
-                                    <a href="#">
-                                        <span class="sr-only">Workflow</span>
-                                        <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg">
-                                    </a>
-                                    <div class="-mr-2 flex items-center md:hidden">
-                                        <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
-                                            <span class="sr-only">Open main menu</span>
-                                            <!-- Heroicon name: outline/menu -->
-                                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
-                                <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Product</a>
-
-                                <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Features</a>
-
-                                <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Marketplace</a>
-
-                                <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Company</a>
-
-                                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a>
-                            </div>
-                        </nav>
-                    </div>
-
-                    <!--
-                      Mobile menu, show/hide based on menu open state.
-
-                      Entering: "duration-150 ease-out"
-                        From: "opacity-0 scale-95"
-                        To: "opacity-100 scale-100"
-                      Leaving: "duration-100 ease-in"
-                        From: "opacity-100 scale-100"
-                        To: "opacity-0 scale-95"
-                    -->
-                    <div class="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
-                        <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
-                            <div class="px-5 pt-4 flex items-center justify-between">
-                                <div>
-                                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="">
-                                </div>
-                                <div class="-mr-2">
-                                    <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                                        <span class="sr-only">Close main menu</span>
-                                        <!-- Heroicon name: outline/x -->
-                                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="px-2 pt-2 pb-3 space-y-1">
-                                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Product</a>
-
-                                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Features</a>
-
-                                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Marketplace</a>
-
-                                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Company</a>
-                            </div>
-                            <a href="#" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100">
-                                Log in
-                            </a>
+    <section class="landing">
+        <div class="wrapper">
+            <header class="header">
+                <div class="logo">
+                    <a href="#" class="logo-topcar">
+                        <img src="{{ asset('images/logo.svg') }}" width="258px" height="91px" class="logo-img">
+                    </a>
+                </div>
+                <div class="header-content">
+                    <div class="inform">
+                        <div class="lang-container">
+                            <a href="./" class="lang lang-active">ук</a>
+                            <a href="./" class="lang">ру</a>
+                            <a href="./" class="lang">en</a>
                         </div>
+                        <address class="address">Одеса, вул. Садова 8</address>
+                        <a href="tel:+38(040) 256 558 12" class="tel">+38(040) 256 558 12</a>
+                        <a href="./" class="facebook img-fb fb"></a>
+                        <button class="user-menu" id="menu-open">
+                            <img src="{{ asset('images/user-btn.png') }}" width="29px" height="29px" class="menu-img">
+                        </button>
+                    </div>
+                    <div class="user-menu-content" id="user-menu">
+                        <div class="heding-menu">
+                            <a href="#" class="logo-mini">
+                                <img src="{{ asset('images/user-mini.png') }}" width="75px" height="75px" alt="logo-topcar" class="logi-mini-img">
+                            </a>
+                            <button class="close" id="menu-close"></button>
+                        </div>
+                        <div class="enter">
+                            <form method="POST" action="#">
+                                <h2 class="title-user">Вхід</h2>
+                                <input type="text" class="input" name="email" placeholder="email">
+                                <input type="text" class="input" name="password" placeholder="пароль">
+                                <div class="chb-container">
+                                    <input type="checkbox" class="checkbox chb-img" name="remember_me" id="remember-enter">
+                                    <label class="label-chb" for="remember-enter">запам’ятати в системі</label>
+                                </div>
+                                <div class="btn-center">
+                                    <button type="submit" class="btn-standart">Увійти</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="registration">
+                            <form method="POST" action="#">
+                                <h2 class="title-user">Реєстрація</h2>
+                                <input type="text" class="input" name="name" placeholder="ім’я">
+                                <input type="text" class="input" name="email" placeholder="email">
+                                <div class="chb-container">
+                                    <input type="checkbox" class="checkbox chb-img" name="show_email" id="show-email">
+                                    <label class="label-chb" for="show-email">показувати e-mail</label>
+                                </div>
+                                <input type="text" class="input" name="password" placeholder="пароль">
+                                <input type="text" class="input" name="phone_number" placeholder="номер телефону">
+                                <div class="chb-container">
+                                    <input type="checkbox" class="checkbox chb-img" name="show_phone_number" id="show-tel">
+                                    <label class="label-chb" for="show-tel">показувати телефон</label>
+                                </div>
+                                <div class="chb-container">
+                                    <input type="checkbox" class="checkbox chb-img" name="remember_me" id="remember-registration">
+                                    <label class="label-chb" for="remember-registration">запам’ятати в системі</label>
+                                </div>
+                                <div class="btn-center">
+                                    <button type="submit" class="btn-standart">Реєстрація</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <a href="./" class="link">про нас</a>
+                        <a href="./" class="link">відгуки</a>
+                        <a href="./" class="link">контакти</a>
+                        <a href="./" class="link">для розробників</a>
                     </div>
                 </div>
-
-                <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-                    <div class="sm:text-center lg:text-left">
-                        <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                            <span class="block xl:inline">Data to enrich your</span>
-                            <span class="block text-indigo-600 xl:inline">online business</span>
-                        </h1>
-                        <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
-                        </p>
-                        <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                            <div class="rounded-md shadow">
-                                <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
-                                    Get started
-                                </a>
-                            </div>
-                            <div class="mt-3 sm:mt-0 sm:ml-3">
-                                <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10">
-                                    Live demo
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </main>
+            </header>
+            <div class="landing-content" id="content">
+                <h1 class="title"><bold>TopCar</bold> - найкращий сервіс
+                    відгуків про автомобілі</h1>
+                <!-- <button class="slider-down  btn-slider slider"></button> -->
             </div>
         </div>
-        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-            <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80" alt="">
+    </section>
+    <section class="about">
+        <div class="about-wrapper">
+            <div class="heading-about">
+                <a href="./" class="about-link">про нас</a>
+                <h2 class="about-title">TopCar - сервіс відгуків про автомобілі</h2>
+            </div>
+            <div class="about-content">
+                <h3 class="about-content-title">Ми пропонуємо нашим  користувачам:</h3>
+                <ul class="about-text">
+                    <li class="text point">портфоліо різноманих автомобілів</li>
+                    <li class="text point">сотні відгуків про різні моделі</li>
+                    <li class="text point">можливість відфільтрувати пошук певного автомобіля</li>
+                    <li class="text point">переглянути рекомендовані марки та моделі</li>
+                    <li class="text point">створити  власний обліковий запис</li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <x-alert :message="Str::random(5)"/>
-    <x-alert type="{{ \App\View\Components\Alert::TYPE_SUCCESS }}" :message="Str::random(5)"/>
-    <x-alert :message="Str::random(5)"/>
+    </section>
 @endsection
+@push('scripts')
+    <!-- there js code -->
+    <script>
+        const openButton=document.querySelector('#menu-open');
+        const closeButton=document.querySelector('#menu-close');
+
+        const menu=document.querySelector('#user-menu');
+        openButton.addEventListener('click', ()=>{
+            menu.classList.add('show-menu');
+            // document.getElementById('#content').hidden=true;
+            // document.getElementById('gradient').hidden=true;
+        })
+        closeButton.addEventListener('click', ()=>{
+            menu.classList.remove('show-menu');
+            // document.getElementById('slider').hidden=false;
+            // document.getElementById('gradient').hidden=false;
+        })
+    </script>
+    <!-- end js code -->
+@endpush
