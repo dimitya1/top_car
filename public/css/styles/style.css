@@ -530,7 +530,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-image: url(../images/landing_bg.png);
+  background-image: url(../../images/landing_bg.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -634,7 +634,7 @@ img-fb::after {
 /* line 99, ../../Documents/TopCar/landing/scss/style.scss */
 .fb::after {
   content: "";
-  background-image: url(../images/facebook.svg);
+  background-image: url(../../images/facebook.svg);
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -672,7 +672,7 @@ img-fb::after {
 /* line 126, ../../Documents/TopCar/landing/scss/style.scss */
 .landing-content {
   margin-top: 70px;
-  background-image: url(../images/auto-bg.svg);
+  background-image: url(../../images/auto-bg.svg);
   height: 488px;
   background-size: contain;
   background-position: center;
@@ -702,7 +702,7 @@ img-fb::after {
 
 /* line 173, ../../Documents/TopCar/landing/scss/style.scss */
 .about {
-  background-image: url(../images/bg-about.png);
+  background-image: url(../../images/bg-about.png);
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
@@ -795,7 +795,7 @@ img-fb::after {
 
 /* line 248, ../../Documents/TopCar/landing/scss/style.scss */
 .point::before {
-  background-image: url(../images/point-gray.png);
+  background-image: url(../../images/point-gray.png);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -853,7 +853,7 @@ img-fb::after {
 /* line 295, ../../Documents/TopCar/landing/scss/style.scss */
 .fb-gray::before {
   content: "";
-  background-image: url(../images/facebook-gray.svg);
+  background-image: url(../../images/facebook-gray.svg);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -883,12 +883,12 @@ img-fb::after {
 
 @font-face {
   font-family: "Sansita-Regular";
-  src: url(../fonts/Sansita-Regular.ttf);
+  src: url(../../fonts/Sansita-Regular.ttf);
 }
 
 @font-face {
   font-family: "Sansita-Bold";
-  src: url(../fonts/Sansita-Bold.ttf);
+  src: url(../../fonts/Sansita-Bold.ttf);
 }
 
 /*# sourceMappingURL=style.css.map */

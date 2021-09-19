@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthorizationController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('authorisation')->name('auth.')->group(function () {
     Route::post('login', [AuthorizationController::class, 'login'])->name('login');

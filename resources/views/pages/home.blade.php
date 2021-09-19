@@ -19,10 +19,15 @@
                         <a href="tel:+38(040) 256 558 12" class="tel">+38(040) 256 558 12</a>
                         <a href="./" class="facebook img-fb fb"></a>
                         <button class="user-menu" id="menu-open">
-                            <img src="{{ asset('images/user-btn.png') }}" width="29px" height="29px" class="menu-img">
+                            @auth
+                                {{ auth()->user()->name }}
+                            @else
+                                <img src="{{ asset('images/user-btn.png') }}" width="29px" height="29px" class="menu-img">
+                            @endauth
                         </button>
                     </div>
                     <div class="user-menu-content" id="user-menu">
+                        @guest
                         <div class="heding-menu">
                             <a href="#" class="logo-mini">
                                 <img src="{{ asset('images/user-mini.png') }}" width="75px" height="75px" alt="logo-topcar" class="logi-mini-img">
@@ -30,9 +35,12 @@
                             <button class="close" id="menu-close"></button>
                         </div>
                         <div class="enter">
-                            <form method="POST" action="#">
+                            <form method="POST" action="{{ route('auth.login') }}">
+                                @csrf
                                 <h2 class="title-user">Вхід</h2>
-                                <input type="text" class="input" name="email" placeholder="email">
+                                <label>
+                                    <input type="text" class="input" name="email" placeholder="email">
+                                </label>
                                 <input type="text" class="input" name="password" placeholder="пароль">
                                 <div class="chb-container">
                                     <input type="checkbox" class="checkbox chb-img" name="remember_me" id="remember-enter">
@@ -44,7 +52,8 @@
                             </form>
                         </div>
                         <div class="registration">
-                            <form method="POST" action="#">
+                            <form method="POST" action="{{ route('auth.register') }}">
+                                @csrf
                                 <h2 class="title-user">Реєстрація</h2>
                                 <input type="text" class="input" name="name" placeholder="ім’я">
                                 <input type="text" class="input" name="email" placeholder="email">
@@ -67,13 +76,39 @@
                                 </div>
                             </form>
                         </div>
+                        @else
+                            <div class="heding-menu">
+                                <a href="#" class="logo-mini">
+                                    <img src="{{ asset('images/user-mini.png') }}" width="75px" height="75px" alt="logo-topcar" class="logi-mini-img">
+                                </a>
+                                <button class="close" id="menu-close"></button>
+                            </div>
+                            <div class="enter">
+                                <form method="POST" action="{{ route('auth.logout') }}">
+                                    @csrf
+                                    <button type="submit" class="btn-standart">Вийти</button>
+                                </form>
+                            </div>
+                            @endguest
                     </div>
                     <div class="menu">
-                        <a href="./" class="link">про нас</a>
+                        <a href="#about-us" class="link">про нас</a>
                         <a href="./" class="link">відгуки</a>
                         <a href="./" class="link">контакти</a>
                         <a href="./" class="link">для розробників</a>
                     </div>
+                    @foreach($errors->all() as $error)
+                        <x-alert type="danger" :message="$error"/>
+                    @endforeach
+                    @if (session('successful_login'))
+                        <x-alert type="success" :message="session('successful_login')"/>
+                    @endif
+                    @if (session('successful_registration'))
+                        <x-alert type="success" :message="session('successful_registration')"/>
+                    @endif
+                    @if (session('successful_logout'))
+                        <x-alert type="success" :message="session('successful_logout')"/>
+                    @endif
                 </div>
             </header>
             <div class="landing-content" id="content">
@@ -83,7 +118,7 @@
             </div>
         </div>
     </section>
-    <section class="about">
+    <section class="about" id="about-us">
         <div class="about-wrapper">
             <div class="heading-about">
                 <a href="./" class="about-link">про нас</a>

@@ -9,16 +9,18 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'login'    => ['required', 'email', 'exists:users,email'],
-            'password' => ['required'],
+            'email'       => ['required', 'string', 'min:9', 'max:120', 'email', 'exists:users,email'],
+            'password'    => ['required', 'string', 'min:6', 'max:60'],
+            'remember_me' => ['sometimes', 'in:on'],
         ];
     }
 
     public function attributes(): array
     {
         return [
-            'login'    => __('app.authorization.login'),
-            'password' => __('app.authorization.password'),
+            'email'       => __('app.authorization.email'),
+            'password'    => __('app.authorization.password'),
+            'remember_me' => __('app.authorization.remember_me'),
         ];
     }
 }
