@@ -15,6 +15,7 @@ class HomeController extends Controller
 {
     public function index(): View
     {
-        return view('pages.home');
+        $page = \request()->page;
+        return view("pages.$page");
     }
 }

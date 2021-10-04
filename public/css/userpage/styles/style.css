@@ -1,0 +1,1098 @@
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+/* line 11, ../../Documents/TopCar/userpage/scss/normalize.scss */
+html {
+  line-height: 1.15;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/* Sections
+     ========================================================================== */
+/**
+   * Remove the margin in all browsers.
+   */
+/* line 23, ../../Documents/TopCar/userpage/scss/normalize.scss */
+body {
+  margin: 0;
+}
+
+/**
+   * Render the `main` element consistently in IE.
+   */
+/* line 31, ../../Documents/TopCar/userpage/scss/normalize.scss */
+main {
+  display: block;
+}
+
+/**
+   * Correct the font size and margin on `h1` elements within `section` and
+   * `article` contexts in Chrome, Firefox, and Safari.
+   */
+/* line 40, ../../Documents/TopCar/userpage/scss/normalize.scss */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+     ========================================================================== */
+/**
+   * 1. Add the correct box sizing in Firefox.
+   * 2. Show the overflow in Edge and IE.
+   */
+/* line 53, ../../Documents/TopCar/userpage/scss/normalize.scss */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+}
+
+/**
+   * 1. Correct the inheritance and scaling of font size in all browsers.
+   * 2. Correct the odd `em` font sizing in all browsers.
+   */
+/* line 64, ../../Documents/TopCar/userpage/scss/normalize.scss */
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/* Text-level semantics
+     ========================================================================== */
+/**
+   * Remove the gray background on active links in IE 10.
+   */
+/* line 76, ../../Documents/TopCar/userpage/scss/normalize.scss */
+a {
+  background-color: transparent;
+}
+
+/**
+   * 1. Remove the bottom border in Chrome 57-
+   * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+   */
+/* line 85, ../../Documents/TopCar/userpage/scss/normalize.scss */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */
+}
+
+/**
+   * Add the correct font weight in Chrome, Edge, and Safari.
+   */
+/* line 95, ../../Documents/TopCar/userpage/scss/normalize.scss */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+   * 1. Correct the inheritance and scaling of font size in all browsers.
+   * 2. Correct the odd `em` font sizing in all browsers.
+   */
+/* line 105, ../../Documents/TopCar/userpage/scss/normalize.scss */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/**
+   * Add the correct font size in all browsers.
+   */
+/* line 116, ../../Documents/TopCar/userpage/scss/normalize.scss */
+small {
+  font-size: 80%;
+}
+
+/**
+   * Prevent `sub` and `sup` elements from affecting the line height in
+   * all browsers.
+   */
+/* line 125, ../../Documents/TopCar/userpage/scss/normalize.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 133, ../../Documents/TopCar/userpage/scss/normalize.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* line 137, ../../Documents/TopCar/userpage/scss/normalize.scss */
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+     ========================================================================== */
+/**
+   * Remove the border on images inside links in IE 10.
+   */
+/* line 148, ../../Documents/TopCar/userpage/scss/normalize.scss */
+img {
+  border-style: none;
+}
+
+/* Forms
+     ========================================================================== */
+/**
+   * 1. Change the font styles in all browsers.
+   * 2. Remove the margin in Firefox and Safari.
+   */
+/* line 160, ../../Documents/TopCar/userpage/scss/normalize.scss */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+}
+
+/**
+   * Show the overflow in IE.
+   * 1. Show the overflow in Edge.
+   */
+/* line 176, ../../Documents/TopCar/userpage/scss/normalize.scss */
+button,
+input {
+  /* 1 */
+  overflow: visible;
+}
+
+/**
+   * Remove the inheritance of text transform in Edge, Firefox, and IE.
+   * 1. Remove the inheritance of text transform in Firefox.
+   */
+/* line 186, ../../Documents/TopCar/userpage/scss/normalize.scss */
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+   * Correct the inability to style clickable types in iOS and Safari.
+   */
+/* line 195, ../../Documents/TopCar/userpage/scss/normalize.scss */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+/**
+   * Remove the inner border and padding in Firefox.
+   */
+/* line 206, ../../Documents/TopCar/userpage/scss/normalize.scss */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+   * Restore the focus styles unset by the previous rule.
+   */
+/* line 218, ../../Documents/TopCar/userpage/scss/normalize.scss */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+   * Correct the padding in Firefox.
+   */
+/* line 229, ../../Documents/TopCar/userpage/scss/normalize.scss */
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+   * 1. Correct the text wrapping in Edge and IE.
+   * 2. Correct the color inheritance from `fieldset` elements in IE.
+   * 3. Remove the padding so developers are not caught out when they zero out
+   *    `fieldset` elements in all browsers.
+   */
+/* line 240, ../../Documents/TopCar/userpage/scss/normalize.scss */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
+}
+
+/**
+   * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+   */
+/* line 253, ../../Documents/TopCar/userpage/scss/normalize.scss */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+   * Remove the default vertical scrollbar in IE 10+.
+   */
+/* line 261, ../../Documents/TopCar/userpage/scss/normalize.scss */
+textarea {
+  overflow: auto;
+}
+
+/**
+   * 1. Add the correct box sizing in IE 10.
+   * 2. Remove the padding in IE 10.
+   */
+/* line 270, ../../Documents/TopCar/userpage/scss/normalize.scss */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+   * Correct the cursor style of increment and decrement buttons in Chrome.
+   */
+/* line 280, ../../Documents/TopCar/userpage/scss/normalize.scss */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+   * 1. Correct the odd appearance in Chrome and Safari.
+   * 2. Correct the outline style in Safari.
+   */
+/* line 290, ../../Documents/TopCar/userpage/scss/normalize.scss */
+[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/**
+   * Remove the inner padding in Chrome and Safari on macOS.
+   */
+/* line 299, ../../Documents/TopCar/userpage/scss/normalize.scss */
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+   * 1. Correct the inability to style clickable types in iOS and Safari.
+   * 2. Change font properties to `inherit` in Safari.
+   */
+/* line 308, ../../Documents/TopCar/userpage/scss/normalize.scss */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/* Interactive
+     ========================================================================== */
+/*
+   * Add the correct display in Edge, IE 10+, and Firefox.
+   */
+/* line 320, ../../Documents/TopCar/userpage/scss/normalize.scss */
+details {
+  display: block;
+}
+
+/*
+   * Add the correct display in all browsers.
+   */
+/* line 328, ../../Documents/TopCar/userpage/scss/normalize.scss */
+summary {
+  display: list-item;
+}
+
+/* Misc
+     ========================================================================== */
+/**
+   * Add the correct display in IE 10+.
+   */
+/* line 339, ../../Documents/TopCar/userpage/scss/normalize.scss */
+template {
+  display: none;
+}
+
+/**
+   * Add the correct display in IE 10.
+   */
+/* line 347, ../../Documents/TopCar/userpage/scss/normalize.scss */
+[hidden] {
+  display: none;
+}
+
+/* line 1, ../../Documents/TopCar/userpage/scss/usermenu.scss */
+.user-menu-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 30%;
+  position: absolute;
+  background: #fff;
+  display: none;
+  border-radius: 12px;
+  border: 2px solid #8C8A8E;
+}
+
+/* line 16, ../../Documents/TopCar/userpage/scss/usermenu.scss */
+.heding-menu {
+  padding-top: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 22, ../../Documents/TopCar/userpage/scss/usermenu.scss */
+.show-menu {
+  display: block;
+}
+
+/* line 25, ../../Documents/TopCar/userpage/scss/usermenu.scss */
+.logo-mini-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 31, ../../Documents/TopCar/userpage/scss/usermenu.scss */
+.text-user {
+  margin-top: 10px;
+  text-decoration: none;
+  color: #8C8A8E;
+  font-size: 13px;
+}
+
+/* line 37, ../../Documents/TopCar/userpage/scss/usermenu.scss */
+.logo-mini {
+  width: 75px;
+  height: 75px;
+}
+
+/* line 41, ../../Documents/TopCar/userpage/scss/usermenu.scss */
+.enter, .registration {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 29px;
+  background: rgba(140, 138, 142, 0.13);
+  border-radius: 12px;
+  padding: 0px 20px 0px 20px;
+}
+
+/* line 50, ../../Documents/TopCar/userpage/scss/usermenu.scss */
+.title-user {
+  margin-top: 18px;
+  font-weight: bold;
+  font-size: 24px;
+  color: #8C8A8E;
+}
+
+/* line 56, ../../Documents/TopCar/userpage/scss/usermenu.scss */
+.input {
+  background: #FFFFFF;
+  border-radius: 8px;
+  margin-top: 21px;
+  height: 40px;
+  border: none;
+}
+
+/* line 63, ../../Documents/TopCar/userpage/scss/usermenu.scss */
+.input:first-child {
+  margin-top: 31px;
+}
+
+/* line 66, ../../Documents/TopCar/userpage/scss/usermenu.scss */
+.input::placeholder {
+  padding-left: 15px;
+  font-size: 15px;
+  color: rgba(140, 138, 142, 0.7);
+  font-weight: normal;
+}
+
+/* line 72, ../../Documents/TopCar/userpage/scss/usermenu.scss */
+.chb-container {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 77, ../../Documents/TopCar/userpage/scss/usermenu.scss */
+.checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+/* line 82, ../../Documents/TopCar/userpage/scss/usermenu.scss */
+.label-chb {
+  font-size: 15px;
+  color: #8C8A8E;
+}
+
+/* line 86, ../../Documents/TopCar/userpage/scss/usermenu.scss */
+.btn-center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 19px;
+  margin-bottom: 16px;
+}
+
+/* line 94, ../../Documents/TopCar/userpage/scss/usermenu.scss */
+.btn-standart {
+  width: 250px;
+  height: 50px;
+  background: #887D92;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  font-size: 18px;
+  border: none;
+  color: #fff;
+}
+
+/* line 104, ../../Documents/TopCar/userpage/scss/usermenu.scss */
+.close {
+  width: 29px;
+  height: 29px;
+  position: absolute;
+  right: 13px;
+  top: 20px;
+  background-color: transparent;
+  border: none;
+}
+
+/* line 113, ../../Documents/TopCar/userpage/scss/usermenu.scss */
+.close::before,
+.close::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 2px;
+  background-color: #887D92;
+  right: 13px;
+}
+
+/* line 123, ../../Documents/TopCar/userpage/scss/usermenu.scss */
+.close::before {
+  content: "";
+  transform: rotate(45deg);
+}
+
+/* line 127, ../../Documents/TopCar/userpage/scss/usermenu.scss */
+.close::after {
+  content: "";
+  transform: rotate(-45deg);
+}
+
+/* line 1, ../../Documents/TopCar/userpage/scss/userupdate.scss */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 6, ../../Documents/TopCar/userpage/scss/userupdate.scss */
+.user-update {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 40%;
+  position: absolute;
+  top: 170px;
+  background: #e0e0e0;
+  display: none;
+  border-radius: 12px;
+}
+
+/* line 18, ../../Documents/TopCar/userpage/scss/userupdate.scss */
+.heding-menu {
+  padding-top: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 24, ../../Documents/TopCar/userpage/scss/userupdate.scss */
+.show-update {
+  display: block;
+}
+
+/* line 27, ../../Documents/TopCar/userpage/scss/userupdate.scss */
+.logo-mini {
+  width: 75px;
+  height: 75px;
+}
+
+/* line 31, ../../Documents/TopCar/userpage/scss/userupdate.scss */
+.close {
+  width: 29px;
+  height: 29px;
+  position: absolute;
+  right: 13px;
+  top: 20px;
+  background-color: transparent;
+  border: none;
+}
+
+/* line 40, ../../Documents/TopCar/userpage/scss/userupdate.scss */
+.close::before,
+.close::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 2px;
+  background-color: #887D92;
+  right: 13px;
+}
+
+/* line 50, ../../Documents/TopCar/userpage/scss/userupdate.scss */
+.close::before {
+  content: "";
+  transform: rotate(45deg);
+}
+
+/* line 54, ../../Documents/TopCar/userpage/scss/userupdate.scss */
+.close::after {
+  content: "";
+  transform: rotate(-45deg);
+}
+
+/* line 58, ../../Documents/TopCar/userpage/scss/userupdate.scss */
+.input-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+/* line 65, ../../Documents/TopCar/userpage/scss/userupdate.scss */
+.photo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 71, ../../Documents/TopCar/userpage/scss/userupdate.scss */
+.photo-text {
+  font-size: 13px;
+  margin-top: 15px;
+  color: #8C8A8E;
+}
+
+/* line 76, ../../Documents/TopCar/userpage/scss/userupdate.scss */
+.btn-standart-mini {
+  width: 100px;
+  height: 30px;
+  background: #887D92;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  font-size: 18px;
+  border: none;
+  color: #fff;
+  margin-top: 15px;
+}
+
+/* line 87, ../../Documents/TopCar/userpage/scss/userupdate.scss */
+.update-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 40px;
+  padding: 0px 20px 0px 20px;
+}
+
+/* line 94, ../../Documents/TopCar/userpage/scss/userupdate.scss */
+.input {
+  background: #FFFFFF;
+  border-radius: 8px;
+  margin-top: 30px;
+  height: 40px;
+  border: none;
+}
+
+/* line 101, ../../Documents/TopCar/userpage/scss/userupdate.scss */
+.input:first-child {
+  margin-top: 0px;
+}
+
+/* line 104, ../../Documents/TopCar/userpage/scss/userupdate.scss */
+.input::placeholder {
+  padding-left: 15px;
+  font-size: 15px;
+  color: rgba(140, 138, 142, 0.7);
+  font-weight: normal;
+}
+
+/* line 110, ../../Documents/TopCar/userpage/scss/userupdate.scss */
+.chb-container {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 115, ../../Documents/TopCar/userpage/scss/userupdate.scss */
+.checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+/* line 120, ../../Documents/TopCar/userpage/scss/userupdate.scss */
+.label-chb {
+  font-size: 15px;
+  color: #8C8A8E;
+}
+
+/* line 125, ../../Documents/TopCar/userpage/scss/userupdate.scss */
+.btn-center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 19px;
+  margin-bottom: 16px;
+}
+
+/* line 133, ../../Documents/TopCar/userpage/scss/userupdate.scss */
+.btn-standart {
+  width: 250px;
+  height: 50px;
+  background: #887D92;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  font-size: 18px;
+  border: none;
+  color: #fff;
+}
+
+/* line 4, ../../Documents/TopCar/userpage/scss/style.scss */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 9, ../../Documents/TopCar/userpage/scss/style.scss */
+body {
+  color: rgba(0, 0, 0, 0.8);
+  font-family: "TT-Norms";
+}
+
+/* line 13, ../../Documents/TopCar/userpage/scss/style.scss */
+.userpage {
+  display: flex;
+  flex-direction: column;
+  background-image: url(../images/bg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 1024px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* line 25, ../../Documents/TopCar/userpage/scss/style.scss */
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 30px;
+}
+
+/* line 31, ../../Documents/TopCar/userpage/scss/style.scss */
+.logo-text {
+  font-size: 48px;
+  color: rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+  position: relative;
+}
+
+/* line 37, ../../Documents/TopCar/userpage/scss/style.scss */
+.logo-img {
+  width: 258px;
+  height: 91px;
+  position: relative;
+  text-decoration: none;
+}
+
+/* line 43, ../../Documents/TopCar/userpage/scss/style.scss */
+.logo {
+  display: flex;
+  flex-direction: row;
+  width: 600px;
+}
+
+/* line 48, ../../Documents/TopCar/userpage/scss/style.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 51, ../../Documents/TopCar/userpage/scss/style.scss */
+.header-content {
+  min-width: 545px;
+  vertical-align: middle;
+}
+
+/* line 55, ../../Documents/TopCar/userpage/scss/style.scss */
+.inform {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+/* line 60, ../../Documents/TopCar/userpage/scss/style.scss */
+.lang-container {
+  margin-right: 16px;
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 65, ../../Documents/TopCar/userpage/scss/style.scss */
+.lang-active, .lang:hover {
+  background: #8CD3FF;
+  border-radius: 7px;
+}
+
+/* line 69, ../../Documents/TopCar/userpage/scss/style.scss */
+.lang {
+  font-weight: bold;
+  font-size: 14px;
+  padding: 5px 5px 0px 5px;
+  margin-right: 5px;
+  text-transform: uppercase;
+  color: #8C8A8E;
+  text-decoration: none;
+}
+
+/* line 78, ../../Documents/TopCar/userpage/scss/style.scss */
+.lang:last-child {
+  margin-right: 0;
+}
+
+/* line 81, ../../Documents/TopCar/userpage/scss/style.scss */
+.address {
+  margin-right: 26px;
+  font-size: 16px;
+  margin-top: 3px;
+  font-style: normal;
+  color: #8C8A8E;
+}
+
+/* line 88, ../../Documents/TopCar/userpage/scss/style.scss */
+.tel {
+  margin-right: 16px;
+  font-family: "Sansita-Bold";
+  font-size: 16px;
+  margin-top: 3px;
+  color: #8C8A8E;
+  text-decoration: none;
+}
+
+/* line 96, ../../Documents/TopCar/userpage/scss/style.scss */
+.facebook::after {
+  content: "";
+  width: 24px;
+  height: 24px;
+  margin-bottom: 5px;
+  display: block;
+  margin-right: 16px;
+}
+
+/* line 105, ../../Documents/TopCar/userpage/scss/style.scss */
+img-fb::after {
+  content: "";
+  width: 24px;
+  height: 24px;
+  position: absolute;
+}
+
+/* line 111, ../../Documents/TopCar/userpage/scss/style.scss */
+.fb::after {
+  content: "";
+  background-image: url(../images/facebook-gray.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* line 117, ../../Documents/TopCar/userpage/scss/style.scss */
+.user-menu {
+  margin-top: -8px;
+  border-radius: 50%;
+  border: 2px solid #8C8A8E;
+}
+
+/* line 122, ../../Documents/TopCar/userpage/scss/style.scss */
+.menu-img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+/* line 128, ../../Documents/TopCar/userpage/scss/style.scss */
+.menu {
+  margin-top: 20px;
+}
+
+/* line 131, ../../Documents/TopCar/userpage/scss/style.scss */
+.link {
+  margin-right: 36px;
+  font-size: 18px;
+  color: #8C8A8E;
+  text-decoration: none;
+}
+
+/* line 137, ../../Documents/TopCar/userpage/scss/style.scss */
+.link:hover, .active-link, .list:hover {
+  color: #8CD3FF;
+}
+
+/* line 140, ../../Documents/TopCar/userpage/scss/style.scss */
+.userpage-content {
+  margin-top: 88px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 1115px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 78px;
+}
+
+/* line 152, ../../Documents/TopCar/userpage/scss/style.scss */
+.user-img {
+  height: 216px;
+  display: block;
+  top: 0;
+}
+
+/* line 159, ../../Documents/TopCar/userpage/scss/style.scss */
+.user-img::after {
+  content: "";
+  height: 216px;
+  display: block;
+}
+
+/* line 166, ../../Documents/TopCar/userpage/scss/style.scss */
+.user::after {
+  content: "";
+  background-image: url(../images/user-mini.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* line 173, ../../Documents/TopCar/userpage/scss/style.scss */
+.content-title {
+  font-size: 48px;
+  margin-top: 25px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* line 180, ../../Documents/TopCar/userpage/scss/style.scss */
+.ul {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+}
+
+/* line 188, ../../Documents/TopCar/userpage/scss/style.scss */
+.ul:nth-child(2) {
+  margin-top: 0;
+}
+
+/* line 191, ../../Documents/TopCar/userpage/scss/style.scss */
+.text {
+  font-size: 24px;
+  text-align: justify;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* line 196, ../../Documents/TopCar/userpage/scss/style.scss */
+.list {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 24px;
+  text-align: left;
+  border: none;
+  background-color: transparent;
+}
+
+/* line 203, ../../Documents/TopCar/userpage/scss/style.scss */
+.auto-img {
+  height: 360px;
+  display: block;
+  margin-top: 50px;
+}
+
+/* line 208, ../../Documents/TopCar/userpage/scss/style.scss */
+.auto-img::after {
+  content: "";
+  height: 360px;
+  display: block;
+}
+
+/* line 213, ../../Documents/TopCar/userpage/scss/style.scss */
+.auto {
+  content: "";
+  background-image: url(../images/auto-user.svg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* line 222, ../../Documents/TopCar/userpage/scss/style.scss */
+.point::before {
+  background-image: url(../images/point-gray.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* line 228, ../../Documents/TopCar/userpage/scss/style.scss */
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* line 236, ../../Documents/TopCar/userpage/scss/style.scss */
+.footer-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 244, ../../Documents/TopCar/userpage/scss/style.scss */
+.footer-contacts {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 61px;
+}
+
+/* line 250, ../../Documents/TopCar/userpage/scss/style.scss */
+.footer-addr {
+  margin-top: 36px;
+  font-size: 18px;
+  color: #8C8A8E;
+  font-style: normal;
+}
+
+/* line 256, ../../Documents/TopCar/userpage/scss/style.scss */
+.contact-container {
+  margin-top: 27px;
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 261, ../../Documents/TopCar/userpage/scss/style.scss */
+.facebook-gray::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  margin-right: 26px;
+}
+
+/* line 269, ../../Documents/TopCar/userpage/scss/style.scss */
+.fb-gray::before {
+  content: "";
+  background-image: url(../images/facebook-gray.svg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* line 276, ../../Documents/TopCar/userpage/scss/style.scss */
+.footer-tel {
+  font-size: 18px;
+  color: #8C8A8E;
+  text-decoration: none;
+}
+
+/* line 282, ../../Documents/TopCar/userpage/scss/style.scss */
+.email {
+  margin-top: 27px;
+  font-size: 18px;
+  color: #8C8A8E;
+  text-decoration: none;
+}
+
+/* line 288, ../../Documents/TopCar/userpage/scss/style.scss */
+.footer-inform {
+  margin-top: 101px;
+  font-size: 18px;
+  color: #8C8A8E;
+}
+
+@font-face {
+  font-family: "TT-Norms";
+  src: url(../fonts/TTNorms/TTNorms-Regular.otf);
+}
+
+@font-face {
+  font-family: "TT-Norms-Bold";
+  src: url(../fonts/TTNorms/TTNorms-Bold.otf);
+}
+
+/*# sourceMappingURL=style.css.map */

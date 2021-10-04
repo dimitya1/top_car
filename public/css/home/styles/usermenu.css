@@ -1,0 +1,165 @@
+/* line 1, ../../Documents/TopCar/landing/scss/usermenu.scss */
+.user-menu-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 30%;
+  position: absolute;
+  background: #fff;
+  display: none;
+  border-radius: 12px;
+}
+
+/* line 15, ../../Documents/TopCar/landing/scss/usermenu.scss */
+.heding-menu {
+  padding-top: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 21, ../../Documents/TopCar/landing/scss/usermenu.scss */
+.logo-mini-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 27, ../../Documents/TopCar/landing/scss/usermenu.scss */
+.text-user {
+  margin-top: 10px;
+  text-decoration: none;
+  color: #8C8A8E;
+  font-size: 13px;
+}
+
+/* line 33, ../../Documents/TopCar/landing/scss/usermenu.scss */
+.show-menu {
+  display: block;
+}
+
+/* line 36, ../../Documents/TopCar/landing/scss/usermenu.scss */
+.logo-mini {
+  height: 75px;
+}
+
+/* line 40, ../../Documents/TopCar/landing/scss/usermenu.scss */
+.enter, .registration {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 29px;
+  background: rgba(140, 138, 142, 0.13);
+  border-radius: 12px;
+  padding: 0px 20px 0px 20px;
+}
+
+/* line 49, ../../Documents/TopCar/landing/scss/usermenu.scss */
+.title-user {
+  margin-top: 18px;
+  font-weight: bold;
+  font-size: 24px;
+  color: #8C8A8E;
+}
+
+/* line 55, ../../Documents/TopCar/landing/scss/usermenu.scss */
+.input {
+  background: #FFFFFF;
+  border-radius: 8px;
+  margin-top: 21px;
+  height: 40px;
+  border: none;
+  color: #8C8A8E;
+}
+
+/* line 66, ../../Documents/TopCar/landing/scss/usermenu.scss */
+.input:first-child {
+  margin-top: 31px;
+}
+
+/* line 69, ../../Documents/TopCar/landing/scss/usermenu.scss */
+.input::placeholder {
+  padding-left: 15px;
+  font-size: 15px;
+  color: rgba(140, 138, 142, 0.7);
+  font-weight: normal;
+}
+
+/* line 75, ../../Documents/TopCar/landing/scss/usermenu.scss */
+.chb-container {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 80, ../../Documents/TopCar/landing/scss/usermenu.scss */
+.checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+/* line 85, ../../Documents/TopCar/landing/scss/usermenu.scss */
+.label-chb {
+  font-size: 15px;
+  color: #8C8A8E;
+}
+
+/* line 89, ../../Documents/TopCar/landing/scss/usermenu.scss */
+.btn-center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 19px;
+  margin-bottom: 16px;
+}
+
+/* line 97, ../../Documents/TopCar/landing/scss/usermenu.scss */
+.btn-standart {
+  width: 250px;
+  height: 50px;
+  background: #887D92;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  font-size: 18px;
+  border: none;
+  color: #fff;
+}
+
+/* line 107, ../../Documents/TopCar/landing/scss/usermenu.scss */
+.close {
+  width: 29px;
+  height: 29px;
+  position: absolute;
+  right: 13px;
+  top: 20px;
+  background-color: transparent;
+  border: none;
+}
+
+/* line 116, ../../Documents/TopCar/landing/scss/usermenu.scss */
+.close::before,
+.close::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 2px;
+  background-color: #887D92;
+  right: 13px;
+}
+
+/* line 126, ../../Documents/TopCar/landing/scss/usermenu.scss */
+.close::before {
+  content: "";
+  transform: rotate(45deg);
+}
+
+/* line 130, ../../Documents/TopCar/landing/scss/usermenu.scss */
+.close::after {
+  content: "";
+  transform: rotate(-45deg);
+}
+
+/*# sourceMappingURL=usermenu.css.map */

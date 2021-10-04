@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-{{--    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">--}}
-    <link rel="stylesheet" href="{{ asset('css/styles/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/styles/normalize.css') }}">
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -20,12 +17,22 @@
 </head>
 <body>
 
-@include('layouts.header')
-
 @yield('content')
 
 @include('layouts.footer')
 
+<script>
+    const openButton=document.querySelector('#menu-open');
+    const closeButton=document.querySelector('#menu-close');
+
+    const menu=document.querySelector('#user-menu');
+    openButton.addEventListener('click', ()=>{
+        menu.classList.add('show-menu');
+    })
+    closeButton.addEventListener('click', ()=>{
+        menu.classList.remove('show-menu');
+    })
+</script>
 @stack('scripts')
 </body>
 </html>

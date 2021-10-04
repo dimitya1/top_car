@@ -1,0 +1,118 @@
+.user-menu-content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    // min-width: 1024px;
+    // margin-left: auto;
+    // margin-right: auto;
+    width: 30%;
+    // height: 100vh;
+    position: absolute;
+    background: #fff;
+    display: none;
+    border-radius: 12px;
+    border:2px solid #8C8A8E;
+}
+.heding-menu{
+    padding-top: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.show-menu{
+    display: block;
+}
+.logo-mini{
+    width: 75px;
+    height: 75px;
+}
+.enter, .registration{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 29px;
+    background: rgba(140, 138, 142, 0.13);
+    border-radius: 12px;
+    padding: 0px 20px 0px 20px ;
+}
+.title-user{
+    margin-top: 18px;
+    font-weight: bold;
+    font-size: 24px;
+    color: #8C8A8E;
+}
+.input{
+    background: #FFFFFF;
+    border-radius: 8px;
+    margin-top: 21px;
+    height: 40px;
+    border: none;
+}
+.input:first-child{
+    margin-top: 31px;
+}
+.input::placeholder{
+    padding-left: 15px;
+    font-size: 15px;
+    color: rgba(140, 138, 142, 0.7);
+    font-weight: normal;
+}
+.chb-container{
+    margin-top: 16px;
+    display: flex;
+    flex-direction: row;
+}
+.checkbox{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.label-chb{
+    font-size: 15px;
+    color: #8C8A8E;
+}
+.btn-center{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 19px;
+    margin-bottom: 16px;
+}
+.btn-standart{
+    width: 250px;
+    height: 50px;
+    background: #887D92;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    font-size: 18px;
+    border: none;
+    color: #fff;
+}
+.close{
+    width: 29px;
+    height: 29px;
+    position: absolute;
+    right: 13px;
+    top: 20px;
+    background-color: transparent;
+    border: none;
+}
+.close::before,
+.close::after{
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 2px;
+    background-color: #887D92; 
+    // top: 25px;
+    right: 13px;
+}
+.close::before{
+    content: "";
+    transform: rotate(45deg);
+}
+.close::after{
+    content: "";
+    transform: rotate(-45deg);
+}

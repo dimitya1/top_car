@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\AuthorizationController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('', [HomeController::class, 'index'])->name('home');
+Route::get('contacts', [ContactController::class, 'index'])->name('contacts');
+Route::get('about', [AboutUsController::class, 'index'])->name('about');
 
 Route::prefix('authorisation')->name('auth.')->group(function () {
     Route::post('login', [AuthorizationController::class, 'login'])->name('login');

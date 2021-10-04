@@ -1,0 +1,311 @@
+@import "normalize.scss";
+@import "usermenu.scss";
+@import "userupdate.scss";
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    color: rgba(0, 0, 0, 0.8);
+    font-family: "TT-Norms";
+}
+.userpage{
+    display: flex;
+    flex-direction: column;
+    // height: 100vh;
+    background-image: url(../images/bg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 1024px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 30px;
+}
+.logo-text{
+    font-size: 48px;
+    color: rgba(0, 0, 0, 0.7);
+    text-decoration: none;
+    position: relative;
+}
+.logo-img{
+    width: 258px;
+    height: 91px;
+    position: relative;
+    text-decoration: none;
+}
+.logo{
+    display: flex;
+    flex-direction: row;
+    width: 600px;
+}
+a{
+    text-decoration: none;
+}
+.header-content{
+    min-width: 545px;
+    vertical-align: middle;
+}
+.inform{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+.lang-container{
+    margin-right: 16px;
+    display: flex;
+    flex-direction: row;
+}
+.lang-active, .lang:hover{
+    background: #8CD3FF;
+    border-radius: 7px;
+}
+.lang{
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 5px 0px 5px;
+    margin-right: 5px;
+    text-transform: uppercase;
+    color: #8C8A8E;
+    text-decoration: none;
+}
+.lang:last-child{
+    margin-right: 0;
+}
+.address{
+    margin-right: 26px;
+    font-size: 16px;
+    margin-top: 3px;
+    font-style: normal;
+    color: #8C8A8E;
+}
+.tel{
+    margin-right: 16px;
+    font-family: "Sansita-Bold";
+    font-size: 16px;
+    margin-top: 3px;
+    color: #8C8A8E;
+    text-decoration: none;
+}
+.facebook::after{
+    content: "";
+    width: 24px;
+    height: 24px;
+    // position: absolute;
+    margin-bottom: 5px;
+    display: block;
+    margin-right: 16px;
+}
+img-fb::after{
+    content: "";
+    width: 24px;
+    height: 24px;
+    position: absolute
+}
+.fb::after{
+    content: "";
+    background-image: url(../images/facebook-gray.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.user-menu{
+    margin-top: -8px;
+    border-radius: 50%;
+    border: 2px solid#8C8A8E;
+}
+.menu-img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    // margin-bottom: 5px;
+}
+.menu{
+    margin-top: 20px;
+}
+.link{
+    margin-right: 36px;
+    font-size: 18px;
+    color: #8C8A8E;
+    text-decoration: none;
+}
+.link:hover, .active-link, .list:hover{
+    color:  #8CD3FF;
+}
+.userpage-content{
+    margin-top: 88px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    // position: relative;
+    width: 1115px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 78px;
+}
+.user-img{
+    // width: 233px;
+    height: 216px;
+    // position: absolute;
+    display: block;
+    top: 0;
+}
+.user-img::after{
+    content: "";
+    // width: 233px;
+    height: 216px;
+    // position: absolute;
+    display: block;
+}
+.user::after{
+    content: "";
+    background-image: url(../images/user-mini.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.content-title{
+    font-size: 48px;
+    margin-top: 25px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.7);
+
+}
+.ul{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    // align-items: center;
+    position: relative;
+}
+.ul:nth-child(2){
+    margin-top: 0;
+}
+.text{
+    font-size: 24px;
+    text-align: justify;
+    color: rgba(0, 0, 0, 0.7);
+}
+.list{
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 24px;
+    text-align:left;
+    border: none;
+    background-color: transparent;
+}
+.auto-img{
+    height: 360px;
+    display: block;
+    margin-top: 50px;
+}
+.auto-img::after{
+    content: "";
+   height: 360px;
+   display: block;
+}
+.auto{
+    content: "";
+    background-image: url(../images/auto-user.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+//footer
+.point::before{
+    background-image: url(../images/point-gray.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    // min-width: 1024px;
+    // margin-left: auto;
+    // margin-right: auto;
+}
+.footer-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;   
+}
+.footer-contacts{
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 61px;
+}
+.footer-addr{
+    margin-top: 36px;
+    font-size: 18px;
+    color: #8C8A8E;
+    font-style: normal;
+}
+.contact-container{
+    margin-top: 27px;
+    display: flex;
+    flex-direction: row;
+}
+.facebook-gray::before{
+    content: "";
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-right: 26px;
+    
+}
+.fb-gray::before{
+    content: "";
+    background-image: url(../images/facebook-gray.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.footer-tel{
+    // font-weight: bold;
+    font-size: 18px;
+    color: #8C8A8E;
+    text-decoration: none;
+}
+.email{
+    margin-top: 27px;
+    font-size: 18px;
+    color: #8C8A8E;
+    text-decoration: none;
+}
+.footer-inform{
+    margin-top: 101px;
+    font-size: 18px;
+    color: #8C8A8E;
+}
+
+
+
+
+
+
+
+
+
+
+@font-face {
+    font-family: "TT-Norms";
+    src: url(../fonts/TTNorms/TTNorms-Regular.otf);
+}
+@font-face {
+    font-family: "TT-Norms-Bold";
+    src: url(../fonts/TTNorms/TTNorms-Bold.otf);
+}
+
