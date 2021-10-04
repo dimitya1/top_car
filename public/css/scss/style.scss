@@ -7,7 +7,7 @@
 }
 body{
     color: #ffffff;
-    font-family: "Sansita-Regular";
+    font-family: "TT-Norms";
 }
 
 // .wrapper{
@@ -104,6 +104,7 @@ img-fb::after{
 }
 .user-menu{
     margin-top: -8px;
+    border-radius: 50%;
 }
 .menu-img{
     width: 35px;
@@ -124,7 +125,7 @@ img-fb::after{
     color:  #8CD3FF;
 }
 .landing-content{
-    margin-top: 70px;
+    margin-top: 55px;
     background-image: url(../images/auto-bg.svg);
     // width: 920px;
     height: 488px;
@@ -265,7 +266,7 @@ img-fb::after{
     justify-content: space-between;
     min-width: 1024px;
     margin-left: auto;
-    margin-right: auto;   
+    margin-right: auto;
 }
 .footer-contacts{
     margin-top: 28px;
@@ -290,7 +291,7 @@ img-fb::after{
     height: 24px;
     display: inline-block;
     margin-right: 26px;
-    
+
 }
 .fb-gray::before{
     content: "";
@@ -327,11 +328,11 @@ img-fb::after{
 
 
 @font-face {
-    font-family: "Sansita-Regular";
-    src: url(../fonts/Sansita-Regular.ttf);
+    font-family: "TT-Norms";
+    src: url(../fonts/TTNorms/TTNorms-Regular.otf);
 }
 @font-face {
-    font-family: "Sansita-Bold";
-    src: url(../fonts/Sansita-Bold.ttf);
+    font-family: "TT-Norms-Bold";
+    src: url(../fonts/TTNorms/TTNorms-Bold.otf);
 }
 
