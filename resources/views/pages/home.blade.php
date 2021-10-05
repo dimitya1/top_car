@@ -10,14 +10,14 @@
         <div class="wrapper">
             @include('layouts.header')
             <div class="landing-content" id="content">
-                <h1 class="title"><bold>TopCar</bold> - найкращий сервіс відгуків про автомобілі</h1>
+                <h1 class="title"><bold>@lang('app.topcar')</bold> - найкращий сервіс відгуків про автомобілі</h1>
             </div>
         </div>
     </section>
     <section class="about" id="about-us">
         <div class="about-wrapper">
             <div class="heading-about">
-                <a href="./" class="about-link">про нас</a>
+                <a href="{{ route('about') }}" class="about-link">про нас</a>
                 <h2 class="about-title">TopCar - сервіс відгуків про автомобілі</h2>
             </div>
             <div class="about-content">

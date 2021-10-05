@@ -11,10 +11,10 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
+class UserController extends Controller
 {
     public function index(): View
     {
-        return view('pages.home');
+        return view('pages.userpage');
     }
 }

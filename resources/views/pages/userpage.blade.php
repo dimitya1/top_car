@@ -22,13 +22,10 @@
                             <a href="" class="list" id="new-review">@lang('app.userpage.u_can_list.create_own_review')</a>
                         </li>
                         <li>
-                            <button class="list" id="show-replies">@lang('app.userpage.u_can_list.view_replies')</button>
+                            <a href="" class="list" id="update">@lang('app.userpage.u_can_list.edit_personal_data')</a>
                         </li>
                         <li>
-                            <button class="list" id="update">@lang('app.userpage.u_can_list.edit_personal_data')</button>
-                        </li>
-                        <li>
-                            <a href="../contacts/index.html" class="list" id="reclam">@lang('app.userpage.u_can_list.offer_devs_coop')</a>
+                            <a href="{{ route('contacts') }}" class="list" id="reclam">@lang('app.userpage.u_can_list.offer_coop')</a>
                         </li>
                     </ul>
                     <!-- user update -->

@@ -15,18 +15,18 @@
                     <div class="main-contacts">
                         <a href="tel:@lang('app.contacts.tel')" class="tel-contacts">@lang('app.contacts.tel')</a>
                         <a href="mailto:@lang('app.contacts.email')" class="mail-contacts">@lang('app.contacts.email')</a>
-                        <a href="#" class="link-facebook fb-img">@lang('app.contacts.facebook_text')</a>
+                        <a href="https://facebook.com" target="_blank" class="link-facebook fb-img">@lang('app.contacts.facebook_text')</a>
                     </div>
                 </div>
                 <form class="contact-form">
                     <h2 class="form-title">@lang('app.contacts.wanna_help')</h2>
-                    <input type="text" class="name" placeholder="@lang('app.contacts.contact_form.name')">
+                    <input type="text" class="name" placeholder="@lang('app.contacts.contact_form.name')" @auth value="{{ auth()->user()->name }}" @endauth>
                     <textarea type="text" class="message" placeholder="@lang('app.contacts.contact_form.message')"></textarea>
                     <p class="form-text">@lang('app.contacts.contact_form.help')</p>
                     <input type="tel" class="form-phone" placeholder="@lang('app.contacts.contact_form.phone_number')">
                     <input type="email" class="form-email" placeholder="@lang('app.contacts.contact_form.email')">
                     <div class="btn-center">
-                        <input type="submit"  value="@lang('app.contacts.contact_form.send_request')" class="btn">
+                        <input type="submit" value="@lang('app.contacts.contact_form.send_request')" class="btn">
                     </div>
                 </form>
             </div>

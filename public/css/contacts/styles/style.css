@@ -843,6 +843,7 @@ img-fb::after {
   background: #FFFFFF;
   border-radius: 8px;
   margin-top: 20px;
+  color: #8C8A8E;
 }
 
 /* line 247, ../../Documents/TopCar/contacts/scss/style.scss */
@@ -853,6 +854,7 @@ img-fb::after {
   border-radius: 8px;
   margin-top: 20px;
   resize: none;
+  color: #8C8A8E;
 }
 
 /* line 255, ../../Documents/TopCar/contacts/scss/style.scss */
@@ -872,6 +874,7 @@ img-fb::after {
   background: #FFFFFF;
   border-radius: 8px;
   margin-top: 10px;
+  color: #8C8A8E;
 }
 
 /* line 270, ../../Documents/TopCar/contacts/scss/style.scss */
@@ -881,6 +884,7 @@ img-fb::after {
   background: #FFFFFF;
   border-radius: 8px;
   margin-top: 20px;
+  color: #8C8A8E;
 }
 
 /* line 277, ../../Documents/TopCar/contacts/scss/style.scss */
