@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\CarBrand;
 use App\Models\CarModel;
+use App\Models\Rating;
 use App\Models\Review;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -21,5 +22,6 @@ class DatabaseSeeder extends Seeder
         User::factory(30)->create();
         Artisan::call('topcar:brands-models:save');
         Review::factory(350)->create();
+        Rating::factory(1200)->create();
     }
 }

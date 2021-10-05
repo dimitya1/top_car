@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Review extends Model
 {
@@ -15,8 +16,6 @@ class Review extends Model
         'car_model_id',
         'title',
         'content',
-        'likes',
-        'dislikes',
         'fuel_type',
         'power',
         'engine',
@@ -25,13 +24,22 @@ class Review extends Model
         'gallery',
     ];
 
+    protected $casts = [
+        'gallery' => 'array',
+    ];
+
     public function user(): belongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public function model(): belongsTo
+    public function carModel(): belongsTo
     {
         return $this->belongsTo(CarModel::class);
+    }
+
+    public function ratings(): hasMany
+    {
+        return $this->hasMany(Rating::class);
     }
 }

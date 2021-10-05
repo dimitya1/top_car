@@ -18,4 +18,10 @@ return [
       'danger'  => 'Danger',
       'success' => 'Success',
     ],
+    'review' => [
+        'created' => 'Створений',
+        'anonymous_review' => 'Відгук створено анонімно',
+        'filter_own' => 'Відфільтрувати тільки власні відгуки',
+        'show_all' => 'Показати всі відгуки',
+    ]
 ];

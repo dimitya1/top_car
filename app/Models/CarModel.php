@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class CarModel extends Model
 {
@@ -40,8 +41,13 @@ class CarModel extends Model
         return $this->hasMany(Review::class);
     }
 
-    public function model(): belongsTo
+    public function carBrand(): belongsTo
     {
         return $this->belongsTo(CarBrand::class);
+    }
+
+    public function ratings(): HasManyThrough
+    {
+        return $this->hasManyThrough(Rating::class, Review::class);
     }
 }

@@ -16,7 +16,7 @@
                     <p class="text">@lang('app.userpage.here_you_can')</p>
                     <ul>
                         <li>
-                            <a href="" class="list" id="reviews">@lang('app.userpage.u_can_list.see_own_reviews')</a>
+                            <a href="{{ route('reviews.index', ['own' => true]) }}" class="list" id="reviews">@lang('app.userpage.u_can_list.see_own_reviews')</a>
                         </li>
                         <li>
                             <a href="" class="list" id="new-review">@lang('app.userpage.u_can_list.create_own_review')</a>

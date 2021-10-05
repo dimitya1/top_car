@@ -104,4 +104,22 @@ return [
         'show_phone' => 'показувати телефон',
         'save_changes' => 'Зберегти зміни',
     ],
+    'review' => [
+        'created' => 'Створений',
+        'anonymous_review' => 'Відгук створено анонімно',
+        'filter_own' => 'Відфільтрувати тільки власні відгуки',
+        'fuel_type' => 'Тип палива: ',
+        'engine' => 'Двигун: ',
+        'power' => 'Потужність, к. с.: ',
+        'consumption_city' => 'Витрата палива, місто: ',
+        'consumption_highway' => 'Витрата палива, шосе: ',
+        'fuel_types_list' => [
+          'petrol'  => 'бензин',
+          'diesel'  => 'дизель',
+          'gas'  => 'газ',
+          'electric'  => 'електричка',
+          'hybrid'  => 'гибрид',
+          'other'  => 'інше',
+        ],
+    ]
 ];

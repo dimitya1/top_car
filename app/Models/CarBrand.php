@@ -17,7 +17,7 @@ class CarBrand extends Model
         'paused',
     ];
 
-    public function models(): hasMany
+    public function carModels(): hasMany
     {
         return $this->hasMany(CarModel::class);
     }

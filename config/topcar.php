@@ -9,4 +9,7 @@ return [
         'email' =>   'contact@topcar.net',
       ],
     ],
+    'reviews' => [
+        'paginator' => 10,
+    ]
 ];
