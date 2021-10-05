@@ -2,11 +2,32 @@
 
 return [
     'topcar' => 'TopCar',
+    'layout' => [
+        'footer' => [
+            'promo' => 'автомобільний веб-сайт TopCar',
+        ],
+        'header' => [
+            'languages_list' => [
+                'uk' => 'ук',
+                'ru' => 'ру',
+                'en' => 'en',
+            ],
+            'menu_list' => [
+              'about_us' => 'Про нас',
+              'reviews' => 'Відгуки',
+              'contacts' => 'Контакти',
+              'for_developers' => 'Для розробників',
+            ],
+        ],
+    ],
     'authorization' => [
         'login' => 'Логін',
+        'logout' => 'Вийти',
         'email' => 'Email',
         'password' => 'Пароль',
+        'registration' => 'Реєстрація',
         'remember_me' => 'Запам`ятати мене',
+        'remember_in_system' => 'запам’ятати в системі',
         'show_email' => 'Показувати email іншим користувачам на сайті',
         'show_phone_number' => 'Показувати пароль іншим користувачам на сайті',
         'successful_login' => 'Успішний вхід',
@@ -20,8 +41,8 @@ return [
         'success' => 'Успіх',
     ],
     'contacts' => [
-        'city' => config('topcar.contacts.uk.city').',',
-        'street' => ' '.config('topcar.contacts.uk.street'),
+        'city' => config('topcar.contacts.uk.city') . ',',
+        'street' => ' ' . config('topcar.contacts.uk.street'),
         'tel' => config('topcar.contacts.uk.tel'),
         'email' => config('topcar.contacts.uk.email'),
         'facebook_text' => 'Наша сторінка в фейсбуці',
@@ -52,5 +73,23 @@ return [
         'advertisement' => 'Для власників автомобільних салонів у нас є пропозиція міні-реклами. Тобто ви можете
                     запропонувати нам дякі моделі авто, які будуть публікуватися в списку відгуків вище інших та
                     будуть винесені у спеціальний слайдер на певних сторінках сайту.',
+    ],
+    'userpage' => [
+        'congrats_personal_page' => 'Вітаємо у Вашій персональній сторінці!',
+        'here_you_can' => 'Тут Ви можете:',
+        'u_can_list' => [
+            'see_own_reviews' => 'переглянути власні відгуки;',
+            'create_own_review' => 'написати новий відгук;',
+            'view_replies' => 'подивитися відповіді на ваші відгуки та кометарі;',
+            'edit_personal_data' => 'редагувати власні дані;',
+            'offer_devs_coop' => 'запропонувати розробникам співпрацю.',
+        ],
+        'change_photo' => 'Змінити фото',
+        'send' => 'Надіслати',
+        'change_email' => 'Змінити email',
+        'change_phone' => 'Змінити телефон',
+        'show_email' => 'показувати email',
+        'show_phone' => 'показувати телефон',
+        'save_changes' => 'Зберегти зміни',
     ],
 ];

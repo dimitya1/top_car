@@ -21,6 +21,7 @@
 
 @include('layouts.footer')
 
+{{--usermenu scripts--}}
 <script>
     const openButton=document.querySelector('#menu-open');
     const closeButton=document.querySelector('#menu-close');

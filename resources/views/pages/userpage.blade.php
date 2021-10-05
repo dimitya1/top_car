@@ -11,26 +11,24 @@
             @include('layouts.header')
             <div class="userpage-content">
                 <span class="user-img user"></span>
-                <h2 class="content-title">Вітаємо у Вашій персональній сторінці!</h2>
+                <h2 class="content-title">@lang('app.userpage.congrats_personal_page')</h2>
                 <div class="ul">
-                    <p class="text">Тут Ви можете:</p>
+                    <p class="text">@lang('app.userpage.here_you_can')</p>
                     <ul>
                         <li>
-                            <a href="" class="list" id="reviews">переглянути власні відгуки;</a>
+                            <a href="" class="list" id="reviews">@lang('app.userpage.u_can_list.see_own_reviews')</a>
                         </li>
                         <li>
-                            <a href="" class="list" id="new-review">написати новий відгук; </a>
+                            <a href="" class="list" id="new-review">@lang('app.userpage.u_can_list.create_own_review')</a>
                         </li>
                         <li>
-                            <button class="list" id="show-replies">подивитися відповіді на ваші відгуки та кометарі;
-                            </button>
+                            <button class="list" id="show-replies">@lang('app.userpage.u_can_list.view_replies')</button>
                         </li>
                         <li>
-                            <button class="list" id="update">редагувати власні дані;</button>
+                            <button class="list" id="update">@lang('app.userpage.u_can_list.edit_personal_data')</button>
                         </li>
                         <li>
-                            <a href="../contacts/index.html" class="list" id="reclam">запропонувати розробникам
-                                співпрацю.</a>
+                            <a href="../contacts/index.html" class="list" id="reclam">@lang('app.userpage.u_can_list.offer_devs_coop')</a>
                         </li>
                     </ul>
                     <!-- user update -->
@@ -42,26 +40,26 @@
                             </a>
                             <button class="close" id="update-close"></button>
                         </div>
-                        <p class="photo-text">Змінити фото </p>
+                        <p class="photo-text">@lang('app.userpage.change_photo')</p>
                         <form enctype="multipart/form-data" method="post" class="input-photo">
                             <p class="photo">
                                 <input type="file" name="photo" multiple accept="image/*, image/png">
-                                <input type="submit" class="btn-standart-mini" value="Надіслати">
+                                <input type="submit" class="btn-standart-mini" value="@lang('app.userpage.send')">
                             </p>
                         </form>
                         <div class="update-content">
-                            <input required type="text" class="input" placeholder="Змінити email">
+                            <input required type="text" class="input" placeholder="@lang('app.userpage.change_email')">
                             <div class="chb-container">
                                 <input type="checkbox" class="checkbox chb-img" id="show-email">
-                                <label class="label-chb" for="show-email">показувати email</label>
+                                <label class="label-chb" for="show-email">@lang('app.userpage.show_email')</label>
                             </div>
-                            <input required type="text" class="input" placeholder="Змінити телефон">
+                            <input required type="text" class="input" placeholder="@lang('app.userpage.change_phone')">
                             <div class="chb-container">
                                 <input type="checkbox" class="checkbox chb-img" id="show-tel">
-                                <label class="label-chb" for="show-tel">показувати телефон</label>
+                                <label class="label-chb" for="show-tel">@lang('app.userpage.show_phone')</label>
                             </div>
                             <div class="btn-center">
-                                <button class="btn-standart">Зберегти зміни</button>
+                                <button class="btn-standart">@lang('app.userpage.save_changes')</button>
                             </div>
                         </div>
                     </div>

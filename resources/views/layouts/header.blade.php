@@ -1,18 +1,18 @@
 <header class="header">
     <div class="logo">
-        <a href="#" class="logo-topcar">
+        <a href="{{ route('home') }}" class="logo-topcar">
             <img src="{{ asset('images/logo.svg') }}" width="258px" height="91px" class="logo-img">
         </a>
     </div>
     <div class="header-content">
         <div class="inform">
             <div class="lang-container">
-                <a href="./" class="lang lang-active">ук</a>
-                <a href="./" class="lang">ру</a>
-                <a href="./" class="lang">en</a>
+                <a href="./" class="lang @if(app()->getLocale() === 'uk') lang-active @endif">@lang('app.layout.header.languages_list.uk')</a>
+                <a href="./" class="lang @if(app()->getLocale() === 'ru') lang-active @endif">@lang('app.layout.header.languages_list.ru')</a>
+                <a href="./" class="lang @if(app()->getLocale() === 'en') lang-active @endif">@lang('app.layout.header.languages_list.en')</a>
             </div>
-            <address class="address">Одеса, вул. Садова 8</address>
-            <a href="tel:+38(040) 256 558 12" class="tel">+38(040) 256 558 12</a>
+            <address class="address">@lang('app.contacts.city')@lang('app.contacts.street')</address>
+            <a href="tel:@lang('app.contacts.tel')" class="tel">@lang('app.contacts.tel')</a>
             <a href="./" class="facebook img-fb fb"></a>
             <button class="user-menu" id="menu-open">
                 @auth
@@ -65,10 +65,10 @@
                         </div>
                         <div class="chb-container">
                             <input type="checkbox" class="checkbox chb-img" name="remember_me" id="remember-registration">
-                            <label class="label-chb" for="remember-registration">запам’ятати в системі</label>
+                            <label class="label-chb" for="remember-registration">@lang('app.authorization.remember_in_system')</label>
                         </div>
                         <div class="btn-center">
-                            <button type="submit" class="btn-standart">Реєстрація</button>
+                            <button type="submit" class="btn-standart">@lang('app.authorization.registration')</button>
                         </div>
                     </form>
                 </div>
@@ -82,16 +82,16 @@
                 <div class="enter">
                     <form method="POST" action="{{ route('auth.logout') }}">
                         @csrf
-                        <button type="submit" class="btn-standart">Вийти</button>
+                        <button type="submit" class="btn-standart">@lang('app.authorization.logout')</button>
                     </form>
                 </div>
             @endguest
         </div>
         <div class="menu">
-            <a href="#about-us" class="link">про нас</a>
-            <a href="./" class="link">відгуки</a>
-            <a href="./" class="link">контакти</a>
-            <a href="./" class="link">для розробників</a>
+            <a href="#about-us" class="link">@lang('app.layout.header.menu_list.about_us')</a>
+            <a href="./" class="link">@lang('app.layout.header.menu_list.reviews')</a>
+            <a href="./" class="link">@lang('app.layout.header.menu_list.contacts')</a>
+            <a href="./" class="link">@lang('app.layout.header.menu_list.for_developers')</a>
         </div>
         @foreach($errors->all() as $error)
             <x-alert type="danger" :message="$error"/>
