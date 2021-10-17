@@ -35,8 +35,6 @@ class ReviewFactory extends Factory
             'car_model_id' => CarModel::all()->random()->id,
             'title' => $this->faker->sentence(rand(2, 6)),
             'content' => rand(0, 1) ? $this->faker->sentences(rand(1, 4), true) : null,
-            'likes' => rand(0, 1) ? rand(3, 100) : 1,
-            'dislikes' => rand(0, 1) ? rand(3, 35) : 1,
             'fuel_type' => rand(0, 1) ? $this->faker->randomElement(CarModel::$fuelTypes) : null,
             'power' => rand(0, 1) ? rand(80, 700) : null,
             'engine' => rand(0, 1) ? (float)rand(8, 60) / 10 : null,
