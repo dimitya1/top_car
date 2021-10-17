@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Api\AuthorizationController;
 use App\Http\Controllers\Api\ReviewController;
+use App\Http\Controllers\Api\CarModelController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +22,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('v1')->group(function () {
-    Route::get('reviews', [ReviewController::class, 'index'])->name('reviews.index');
+    Route::prefix('token')->name('token.')->group(function () {
+        Route::post('request', [AuthorizationController::class, 'requestToken'])->name('request');
+    });
+    Route::get('reviews', [ReviewController::class, 'index'])->middleware('auth:sanctum')->name('reviews.index');
+    Route::get('models', [CarModelController::class, 'index'])->middleware('auth:sanctum')->name('models.index');
 });

@@ -12,7 +12,7 @@ class CarModelService
 
     public function getAll(): Collection
     {
-        return $this->model->all();
+        return $this->model->newQuery()->where('paused', false)->get();
     }
 
 
