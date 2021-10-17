@@ -69,7 +69,7 @@
                             {{ $review->content }}
                         </p>
                     @endif
-                    @if(count($review->gallery ?? []))
+                    @if(count( []))
                         <div class="flex flex-wrap -m-4">
                             @foreach($review->gallery as $image)
                                 <div class="xl:w-1/{{ count($review->gallery) }} p-4">
