@@ -23,3 +23,6 @@ RUN curl -sS https://getcomposer.org/installer | php \
 
 # copy source code
 COPY . /var/www/html
+
+RUN apt-get install -y npm \
+    && npm install
