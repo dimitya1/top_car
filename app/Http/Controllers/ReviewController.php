@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Review\StoreReviewRequest;
 use App\Models\Review;
 use App\Services\ReviewService;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ReviewController extends Controller
 {
@@ -31,29 +34,33 @@ class ReviewController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function create()
+    public function create(): view
     {
-        //
+        return view('pages.reviews.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param StoreReviewRequest $request
+     * @param ReviewService $reviewService
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(StoreReviewRequest $request, ReviewService $reviewService): RedirectResponse
     {
-        //
+//        dd($request->all());
+        $reviewService->store($request->all());
+
+        return redirect()->route('reviews.index');
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Review  $review
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show(Review $review)
     {
@@ -64,7 +71,7 @@ class ReviewController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Review  $review
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit(Review $review)
     {
@@ -74,9 +81,9 @@ class ReviewController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  \App\Models\Review  $review
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, Review $review)
     {
@@ -87,7 +94,7 @@ class ReviewController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Review  $review
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy(Review $review)
     {

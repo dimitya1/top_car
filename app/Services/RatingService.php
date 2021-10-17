@@ -30,8 +30,11 @@ class RatingService
         $likes = self::calculateLikes($review);
         $dislikes = self::calculateDislikes($review);
 
-        $ratingPointsOfFive = round($likes / ($likes + $dislikes) * 5, 1);
-
-        return "$ratingPointsOfFive/5";
+        if ($likes + $dislikes > 0) {
+            $ratingPointsOfFive = round($likes / ($likes + $dislikes) * 5, 1);
+            return "$ratingPointsOfFive/5";
+        } else {
+            return '0/5';
+        }
     }
 }

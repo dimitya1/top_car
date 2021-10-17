@@ -18,6 +18,8 @@
                     border-blue-500 text-blue-500 text-lg rounded-lg hover:bg-blue-500 hover:text-gray-100 focus:border-4 focus:border-blue-300">@lang('app.review.filter_own')</a>
                 @endif
             @endauth
+                <a href="{{ route('reviews.create') }}" class="mr-auto mr-12 p-2 pl-5 pr-5 bg-blue-500 text-gray-100 text-lg rounded-lg
+                    focus:border-4 border-blue-300">Написати власний відгук</a>
             @inject('ratingService', 'App\Services\RatingService')
             @foreach($reviews as $review)
                 <div class="p-12 mb-8 mt-8 flex flex-col items-start border-2 border-white">

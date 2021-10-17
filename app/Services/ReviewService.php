@@ -18,4 +18,13 @@ class ReviewService
         }
         return $this->model->newQuery()->with('user')->latest()->paginate(config('topcar.reviews.paginator', 10));
     }
+
+    public function store(array $data): Review
+    {
+        if (auth()->user()) {
+            $data['user_id'] = auth()->id();
+        }
+        
+        return $this->model->create($data);
+    }
 }
