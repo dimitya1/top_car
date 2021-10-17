@@ -78,18 +78,19 @@
                             @endforeach
                         </div>
                     @endif
-                    <div class="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-red-500 mt-auto w-full">
+                    <div class="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-red-500 mt-auto w-full" style="justify-content: space-between">
                         <span>
                             @lang('app.review.created') {{ $review->created_at->diffForHumans() }}
                         </span>
-                        @guest
-                            <span class="ml-24">
-                                Увійдіть або зареєструйтеся, щоб оцінити відгук
-                            </span>
-                        @endguest
+                        <div style="display:flex; justify-content: center; flex-direction: row" >
+                            @guest
+                                <span style="margin-right: 10px; margin-top: 4px">
+                                    Увійдіть або зареєструйтеся, щоб оцінити відгук
+                                </span>
+                            @endguest
 
-                        @livewire('review-likable', ['review' => $review])
-
+                            @livewire('review-likable', ['review' => $review])
+                        </div>
                     </div>
                     <div class="flex items-center flex-wrap pb-4 mb-4 mt-auto w-full">
                         @if($review->user)
