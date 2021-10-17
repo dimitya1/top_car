@@ -27,4 +27,9 @@ class ReviewService
         
         return $this->model->create($data);
     }
+
+    public function getAll(): Collection
+    {
+        return $this->model->all();
+    }
 }
