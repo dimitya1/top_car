@@ -67,21 +67,5 @@
 @endsection
 
 @push('scripts')
-{{--    <script>--}}
-{{--        $('#car_brand_id').on('change', function (e) {--}}
-{{--            if ($(this).val()) {--}}
-{{--                let brand_id = $(this).val();--}}
-{{--                $("#car_model_id option").each(function(i){--}}
 
-{{--                    if ($(this).val()) {--}}
-{{--                        if($(this).data('car_brand_id') != brand_id) {--}}
-{{--                            $(this).remove()--}}
-{{--                        } else {--}}
-{{--                            // $(this).unwrap()--}}
-{{--                        }--}}
-{{--                    }--}}
-{{--                });--}}
-{{--            }--}}
-{{--        })--}}
-{{--    </script>--}}
 @endpush
