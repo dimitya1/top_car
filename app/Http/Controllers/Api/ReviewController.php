@@ -10,6 +10,27 @@ use Illuminate\Http\Request;
 class ReviewController extends Controller
 {
     /**
+     * @OA\Get(
+     *      path="/api/v1/reviews",
+     *      operationId="getReviewsList",
+     *      tags={"Reviews"},
+     *      summary="Get list of all existing reviews",
+     *      description="Returns list of car reviews",
+     *      @OA\Response(
+     *          response=200,
+     *          description="All car models successfully returned",
+     *          @OA\JsonContent(ref="#/components/schemas/ReviewResource")
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Invalid data"
+     *      )
+     *     )
+     *
      * Display a listing of the resource.
      *
      * @param  Request  $request

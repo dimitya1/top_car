@@ -9,8 +9,27 @@ use Illuminate\Validation\ValidationException;
 
 class AuthorizationController extends Controller
 {
-
     /**
+     * @OA\Get(
+     *      path="api/v1/token/request",
+     *      operationId="getAuthToken",
+     *      tags={"Authorization"},
+     *      summary="Get bearer auth non-expired token to make authorized requests",
+     *      description="Returns authorization token",
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/LoginRequest")
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Token successfully returned",
+     *       ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Invalid data"
+     *      )
+     *     )
+     *
      * @param  LoginRequest  $request
      *
      * @return JsonResponse

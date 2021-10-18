@@ -87,7 +87,7 @@
             <a href="{{ route('about') }}" class="link">@lang('app.layout.header.menu_list.about_us')</a>
             <a href="{{ route('reviews.index') }}" class="link">@lang('app.layout.header.menu_list.reviews')</a>
             <a href="{{ route('contacts') }}" class="link">@lang('app.layout.header.menu_list.contacts')</a>
-            <a href="#" class="link">@lang('app.layout.header.menu_list.for_developers')</a>
+            <a href="{{ config('app.url').'/api/v1/documentation' }}" target="_blank" class="link">@lang('app.layout.header.menu_list.for_developers')</a>
             @auth
                 <a href="{{ route('profile') }}" class="link">@lang('app.layout.header.menu_list.profile')</a>
             @endauth

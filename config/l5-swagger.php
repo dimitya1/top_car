@@ -12,7 +12,7 @@ return [
                 /*
                  * Route for accessing api documentation interface
                 */
-                'api' => 'api/documentation',
+                'api' => 'api/v1/documentation',
             ],
             'paths' => [
                 /*
@@ -248,8 +248,10 @@ return [
         /*
          * Uncomment to add constants which can be used in annotations
          */
-        // 'constants' => [
-        // 'L5_SWAGGER_CONST_HOST' => env('L5_SWAGGER_CONST_HOST', 'http://my-default-host.com'),
-        // ],
+         'constants' => [
+            'L5_SWAGGER_CONST_HOST'  => config('app.url', 'http://localhost'),
+            'L5_SWAGGER_CONST_EMAIL' => config('topcar.contacts.uk.email', 'contact@topcar.net'),
+            'L5_SWAGGER_CONST_LICENSE_NAME' => 'MIT License',
+         ],
     ],
 ];

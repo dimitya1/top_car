@@ -25,14 +25,14 @@ class Review extends JsonResource
             'car_model_name'      => $this->carModel->name,
             'title'               => $this->title,
             'comment'             => $this->comment,
-            'fuel_type'           => $this->fuel_type,
-            'power'               => $this->power,
-            'engine'              => $this->engine,
-            'consumption_city'    => $this->consumption_city,
-            'consumption_highway' => $this->consumption_highway,
-            'gallery'             => json_decode($this->gallery),
-            'created_at'          => $this->created_at,
-            'rating'              => $ratingService->getRating($this->resource),
+//            'fuel_type'           => $this->fuel_type,
+//            'power'               => $this->power,
+//            'engine'              => $this->engine,
+//            'consumption_city'    => $this->consumption_city,
+//            'consumption_highway' => $this->consumption_highway,
+//            'gallery'             => json_decode($this->gallery),
+//            'created_at'          => $this->created_at,
+//            'rating'              => $ratingService->getRating($this->resource),
         ];
     }
 }
