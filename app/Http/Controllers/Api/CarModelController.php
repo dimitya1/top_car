@@ -23,10 +23,12 @@ class CarModelController extends Controller
      *      @OA\Response(
      *          response=401,
      *          description="Unauthenticated",
+     *          @OA\JsonContent()
      *      ),
      *      @OA\Response(
      *          response=422,
-     *          description="Invalid data"
+     *          description="Invalid data",
+     *          @OA\JsonContent()
      *      )
      *     )
      *
