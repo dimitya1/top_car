@@ -16,6 +16,7 @@ class ReviewController extends Controller
      *      tags={"Reviews"},
      *      summary="Get list of all existing reviews",
      *      description="Returns list of car reviews",
+     *      security={{"bearer_token":{}}},
      *      @OA\Response(
      *          response=200,
      *          description="All car models successfully returned",

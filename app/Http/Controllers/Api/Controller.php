@@ -19,6 +19,12 @@ class Controller
      *      )
      * )
      *
+     * @OAS\SecurityScheme(
+     *      securityScheme="bearer_token",
+     *      type="http",
+     *      scheme="bearer"
+     * )
+     *
      * @OA\Server(
      *      url=L5_SWAGGER_CONST_HOST,
      *      description="API Server"

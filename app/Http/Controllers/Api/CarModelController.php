@@ -15,6 +15,7 @@ class CarModelController extends Controller
      *      tags={"CarModels"},
      *      summary="Get list of car models",
      *      description="Returns list of car models",
+     *      security={{"bearer_token":{}}},
      *      @OA\Response(
      *          response=200,
      *          description="All car models successfully returned",
