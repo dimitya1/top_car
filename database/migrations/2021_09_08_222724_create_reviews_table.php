@@ -25,7 +25,7 @@ class CreateReviewsTable extends Migration
             $table->integer('dislikes')->unsigned()->default(0);
             $table->enum('fuel_type', ['petrol', 'diesel', 'gas', 'electric', 'hybrid', 'other'])->nullable();
             $table->integer('power')->unsigned()->nullable();
-            $table->float('engine')->nullable();
+            $table->string('engine')->nullable();
             $table->float('consumption_city')->unsigned()->nullable();
             $table->float('consumption_highway')->unsigned()->nullable();
             $table->json('gallery')->nullable();

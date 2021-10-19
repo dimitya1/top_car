@@ -25,6 +25,9 @@ Route::prefix('v1')->group(function () {
     Route::prefix('token')->name('token.')->group(function () {
         Route::post('request', [AuthorizationController::class, 'requestToken'])->name('request');
     });
-    Route::get('reviews', [ReviewController::class, 'index'])->middleware('auth:sanctum')->name('reviews.index');
-    Route::get('models', [CarModelController::class, 'index'])->middleware('auth:sanctum')->name('models.index');
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::get('reviews', [ReviewController::class, 'index'])->name('reviews.index');
+        Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');
+        Route::get('models', [CarModelController::class, 'index'])->name('models.index');
+    });
 });

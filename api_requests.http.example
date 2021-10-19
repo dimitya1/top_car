@@ -17,3 +17,10 @@ GET http://localhost/api/v1/models
 Accept: application/json;
 Content-Type: application/json;
 Authorization: Bearer n|qwertyuiopasdfghjklzxcvbnm
+
+###
+
+POST http://localhost/api/v1/reviews
+Accept: application/json;
+Content-Type: application/json;
+Authorization: Bearer n|qwertyuiopasdfghjklzxcvbnm

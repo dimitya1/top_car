@@ -29,4 +29,9 @@ class CarModelService
             return $this->model->pluck('name', 'id');
         }
     }
+
+    public function getByName(string $name): CarModel
+    {
+        return $this->model->where('name', $name)->first();
+    }
 }
