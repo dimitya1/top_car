@@ -12,7 +12,7 @@ class CarModelService
 
     public function getAll(): Collection
     {
-        return $this->model->all();
+        return $this->model->newQuery()->where('paused', false)->get();
     }
 
 
@@ -28,5 +28,10 @@ class CarModelService
         } else {
             return $this->model->pluck('name', 'id');
         }
+    }
+
+    public function getByName(string $name): CarModel
+    {
+        return $this->model->where('name', $name)->first();
     }
 }

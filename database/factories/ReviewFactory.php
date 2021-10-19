@@ -37,7 +37,7 @@ class ReviewFactory extends Factory
             'content' => rand(0, 1) ? $this->faker->sentences(rand(1, 4), true) : null,
             'fuel_type' => rand(0, 1) ? $this->faker->randomElement(CarModel::$fuelTypes) : null,
             'power' => rand(0, 1) ? rand(80, 700) : null,
-            'engine' => rand(0, 1) ? (float)rand(8, 60) / 10 : null,
+            'engine' => $this->faker->randomLetter() . $this->faker->randomNumber(1),
             'consumption_city' => rand(0, 1) ? (float)rand(50, 300) / 10 : null,
             'consumption_highway' => rand(0, 1) ? (float)rand(40, 200) / 10 : null,
             'gallery' => $galleryPresent ? json_encode($gallery) : null,

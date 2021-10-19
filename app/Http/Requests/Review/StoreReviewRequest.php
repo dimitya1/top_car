@@ -13,6 +13,7 @@ class StoreReviewRequest extends FormRequest
      */
     public function rules(): array
     {
+        dd($this->all());
         return [
 
         ];
