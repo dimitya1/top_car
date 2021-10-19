@@ -20,12 +20,11 @@ class CarModel extends JsonResource
     {
         return [
             'name'           => $this->name,
-//            'car_brand_name' => $this->carBrand->name,
-//            'produced_from'  => $this->produced_from,
-//            'produced_to'    => $this->produced_to,
-//            'fuel_type'      => $this->fuel_type,
-//            'gallery'        => json_decode($this->gallery),
-//            'reviews_count'  => $this->reviews->count(),
+            'car_brand_name' => $this->carBrand->name,
+            'produced_from'  => $this->produced_from,
+            'produced_to'    => $this->produced_to,
+            'gallery'        => $this->gallery,
+            'reviews_count'  => $this->reviews->count(),
         ];
     }
 }

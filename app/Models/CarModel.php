@@ -20,6 +20,10 @@ class CarModel extends Model
         'paused',
     ];
 
+    protected $casts = [
+        'gallery' => 'array',
+    ];
+
     public const FUEL_TYPE_PETROL = 'petrol';
     public const FUEL_TYPE_DIESEL = 'diesel';
     public const FUEL_TYPE_GAS = 'gas';
