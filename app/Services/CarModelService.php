@@ -34,4 +34,9 @@ class CarModelService
     {
         return $this->model->where('name', $name)->first();
     }
+
+    public function findById(int|string $id): CarModel
+    {
+        return $this->model->find($id);
+    }
 }

@@ -13,15 +13,31 @@ class ReviewService
     {
     }
 
-    public function getAllPaginated(bool $filterOwn = false): LengthAwarePaginator {
+    public function getAllPaginated(
+        bool $filterOwn = false,
+        string|int $carBrandId = null,
+        string|int $carModelId = null,
+    ): LengthAwarePaginator {
+        $query = $this->model->newQuery();
+
+        //filtering
         if ($filterOwn) {
-            return $this->model->newQuery()
-                ->where('user_id', auth()->id())
-                ->with('user')
-                ->latest()
-                ->paginate(config('topcar.reviews.paginator', 10));
+            $query = $this->model->newQuery()
+                ->where('user_id', auth()->id());
         }
-        return $this->model->newQuery()
+        if ($carBrandId) {
+            $query = $this->model->newQuery()
+                ->whereHas('carModel', function (Builder $query) use ($carBrandId) {
+                    return $query->where('car_brand_id', $carBrandId);
+                });
+        }
+        if ($carModelId) {
+            $query = $this->model->newQuery()
+                ->where('car_model_id', $carModelId);
+        }
+
+        //common part
+        return $query
             ->with('user')
             ->latest()
             ->paginate(config('topcar.reviews.paginator', 10));

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 
-class CarBrandsModelsSelect extends Component
+class CarBrandsModelsSelectCreate extends Component
 {
     public Collection $brands;
     public Collection $models;

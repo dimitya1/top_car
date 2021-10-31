@@ -22,11 +22,13 @@ class ReviewController extends Controller
     public function index(Request $request, ReviewService $reviewService): view
     {
         $filterOwn = false;
-        if ($request->own && auth()->user()) {
+        //user cannot filter own reviews by car model
+        if ($request->own && auth()->user() && !$request->car_model_id && !$request->car_brand_id) {
             $filterOwn = true;
         }
 
-        $reviews = $reviewService->getAllPaginated($filterOwn);
+        $reviews = $reviewService
+            ->getAllPaginated($filterOwn, $request->car_brand_id, $request->car_model_id);
 
         return view('pages.reviews.index', ['reviews' => $reviews]);
     }
