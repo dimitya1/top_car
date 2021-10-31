@@ -21,11 +21,18 @@ class ReviewController extends Controller
      *      summary="Get list of all existing reviews",
      *      description="Returns list of car reviews",
      *      security={{"bearer_token":{}}},
+     *      @OA\Parameter(
+     *         name="model",
+     *         in="query",
+     *         description="A specified car model to filter the reviews",
+     *         required=false,
+     *         example="Caddy",
+     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="All car models successfully returned",
      *          @OA\JsonContent(ref="#/components/schemas/ReviewResource")
-     *       ),
+     *      ),
      *      @OA\Response(
      *          response=401,
      *          description="Unauthenticated",
