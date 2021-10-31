@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Authorization\LoginRequest;
 use App\Http\Requests\Authorization\RegisterRequest;
+use App\Models\Role;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Http\RedirectResponse;
@@ -41,6 +42,7 @@ class AuthorizationController extends Controller
         }
 
         $user = $userService->save($request->all());
+        $user->assignRole(Role::ROLE_USER);
 
         auth()->login($user, $remember);
 

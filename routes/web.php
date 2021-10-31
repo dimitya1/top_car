@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\Admin\AdministratorController;
 use App\Http\Controllers\AuthorizationController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
@@ -32,3 +33,7 @@ Route::get('about', [AboutUsController::class, 'index'])->name('about');
 Route::get('personal', [UserController::class, 'index'])->name('profile');
 
 Route::resource('reviews', ReviewController::class);
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('administrators', AdministratorController::class);
+});
