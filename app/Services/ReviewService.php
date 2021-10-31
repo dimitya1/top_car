@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Models\Review;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
@@ -14,14 +13,17 @@ class ReviewService
     {
     }
 
-    public function getAllPaginated(bool $filterOwn = false
-    ): LengthAwarePaginator {
+    public function getAllPaginated(bool $filterOwn = false): LengthAwarePaginator {
         if ($filterOwn) {
-            return $this->model->newQuery()->where('user_id', auth()->id())
-                ->with('user')->latest()
+            return $this->model->newQuery()
+                ->where('user_id', auth()->id())
+                ->with('user')
+                ->latest()
                 ->paginate(config('topcar.reviews.paginator', 10));
         }
-        return $this->model->newQuery()->with('user')->latest()
+        return $this->model->newQuery()
+            ->with('user')
+            ->latest()
             ->paginate(config('topcar.reviews.paginator', 10));
     }
 
