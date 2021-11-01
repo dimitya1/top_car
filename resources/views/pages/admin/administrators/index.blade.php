@@ -9,7 +9,28 @@
     <section class="text-white body-font overflow-hidden bg-gradient-to-r from-green-600 via-blue-500 to-indigo-700">
         @include('layouts.header')
         <div class="px-10">
-            <div class="mb-10 overflow-hidden rounded-lg shadow-lg">
+
+            <div class="flex justify-between">
+                <div>
+                    @if (session('successful_destroy'))
+                        <x-alert type="success" :message="session('successful_destroy')"/>
+                    @endif
+                    @if (session('successful_update'))
+                        <x-alert type="success" :message="session('successful_update')"/>
+                    @endif
+                    @if (session('successful_store'))
+                        <x-alert type="success" :message="session('successful_store')"/>
+                    @endif
+                </div>
+                <a href="{{ route('admin.administrators.create') }}" class="py-2 px-4 flex justify-center items-center  bg-green-500 hover:bg-green-700 focus:ring-green-500 focus:ring-offset-green-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+                    </svg>
+                    Створити
+                </a>
+            </div>
+
+            <div class="mt-5 mb-10 overflow-hidden rounded-lg shadow-lg">
                 <div class="overflow-x-auto">
                     <table class="w-full">
                         <thead>
@@ -35,8 +56,8 @@
                                                 <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
                                             </div>
                                             <div>
-                                                <p class="font-semibold text-black">Sufyan</p>
-                                                <p class="text-xs text-gray-600">Developer</p>
+                                                <p class="font-semibold text-black">{{ $admin->name }}</p>
+                                                <p class="text-xs text-gray-600">Адміністратор</p>
                                             </div>
                                         </div>
                                     </td>

@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Hash;
 
 class AdministratorService
 {
@@ -12,7 +13,7 @@ class AdministratorService
 
     public function getAll(): Collection
     {
-        return $this->model->all()->filter(function (User $user) {
+        return $this->model->newQuery()->latest()->get()->filter(function (User $user) {
             return $user->hasRole(Role::ROLE_ADMIN);
         });
     }
@@ -31,6 +32,9 @@ class AdministratorService
 
     public function update(User $administrator, array $data): User
     {
+        if (isset($data['new_password']) && !is_null($data['new_password'])) {
+            $data['password'] = Hash::make($data['new_password']);
+        }
         $administrator->update($data);
 
         return $administrator->fresh();
@@ -38,6 +42,10 @@ class AdministratorService
 
     public function store(array $data): User
     {
+        $data['password'] = Hash::make($data['password']);
+        $data['show_phone_number'] = 0;
+        $data['show_email'] = 0;
+
         $admin = $this->model->create($data);
         $admin->assignRole(Role::ROLE_ADMIN);
 

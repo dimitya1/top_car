@@ -7,11 +7,8 @@ use App\Http\Requests\Admin\Administrator\StoreAdministratorRequest;
 use App\Http\Requests\Admin\Administrator\UpdateAdministratorRequest;
 use App\Models\User;
 use App\Services\AdministratorService;
-use App\Services\UserService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class AdministratorController extends Controller
 {
@@ -31,11 +28,11 @@ class AdministratorController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return View
      */
-    public function create()
+    public function create(): View
     {
-        //
+        return view('pages.admin.administrators.create');
     }
 
     /**
@@ -49,7 +46,7 @@ class AdministratorController extends Controller
     {
         $administratorService->store($request->all());
 
-        return redirect()->route('admin.administrators.index');
+        return redirect()->route('admin.administrators.index')->with('successful_store', 'Новий запис успішно створено');;
     }
 
     /**
@@ -64,12 +61,12 @@ class AdministratorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return Response
+     * @param User $administrator
+     * @return View
      */
-    public function edit($id): View
+    public function edit(User $administrator): View
     {
-
+        return view('pages.admin.administrators.edit', ['admin' => $administrator]);
     }
 
     /**
@@ -86,7 +83,7 @@ class AdministratorController extends Controller
     {
         $administratorService->update($administrator, $request->all());
 
-        return redirect()->route('admin.administrators.index');
+        return redirect()->route('admin.administrators.index')->with('successful_update', 'Дані успішно оновлено');
     }
 
     /**
@@ -100,6 +97,6 @@ class AdministratorController extends Controller
     {
         $administratorService->destroy($administrator);
 
-        return redirect()->route('admin.administrators.index');
+        return redirect()->route('admin.administrators.index')->with('successful_destroy', 'Запис усішно видалено');
     }
 }

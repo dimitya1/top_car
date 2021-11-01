@@ -9,18 +9,20 @@ class StoreAdministratorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email'       => ['required', 'string', 'min:9', 'max:120', 'email', 'exists:users,email'],
-            'password'    => ['required', 'string', 'min:6', 'max:60'],
-            'remember_me' => ['sometimes', 'in:on'],
+            'name'         => ['required', 'string', 'min:3', 'max:60'],
+            'email'        => ['required', 'string', 'min:9', 'max:120', 'email', 'unique:users,email'],
+            'phone_number' => ['required', 'string', 'min:7', 'max:15'],
+            'password'     => ['required', 'min:4', 'max:60'],
         ];
     }
 
     public function attributes(): array
     {
         return [
-            'email'       => __('app.authorization.email'),
-            'password'    => __('app.authorization.password'),
-            'remember_me' => __('app.authorization.remember_me'),
+            'name'         => __('app.admin.administrator.name'),
+            'email'        => __('app.admin.administrator.email'),
+            'phone_number' => __('app.admin.administrator.phone_number'),
+            'password'     => __('app.admin.administrator.password'),
         ];
     }
 }

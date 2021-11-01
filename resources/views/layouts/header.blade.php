@@ -85,9 +85,9 @@
         </div>
         <div class="menu">
             @if(auth()->user() && auth()->user()->hasRole(\App\Models\Role::ROLE_ADMIN))
-                <a href="#" class="link">@lang('app.admin.reviews.index')</a>
-                <a href="#" class="link">@lang('app.admin.car_models.index')</a>
-                <a href="{{ route('admin.administrators.index') }}" class="link">@lang('app.admin.administrators.index')</a>
+                <a href="#" class="link">@lang('app.admin.review.index')</a>
+                <a href="#" class="link">@lang('app.admin.car_model.index')</a>
+                <a href="{{ route('admin.administrators.index') }}" class="link">@lang('app.admin.administrator.index')</a>
             @endif
             <a href="{{ route('about') }}" class="link">@lang('app.layout.header.menu_list.about_us')</a>
             <a href="{{ route('reviews.index') }}" class="link">@lang('app.layout.header.menu_list.reviews')</a>
