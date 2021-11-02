@@ -59,7 +59,8 @@ class ReviewController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Review  $review
+     * @param  Review  $review
+     *
      * @return Response
      */
     public function show(Review $review)
@@ -70,7 +71,8 @@ class ReviewController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Review  $review
+     * @param  Review  $review
+     *
      * @return Response
      */
     public function edit(Review $review)
@@ -82,7 +84,8 @@ class ReviewController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param  \App\Models\Review  $review
+     * @param  Review  $review
+     *
      * @return Response
      */
     public function update(Request $request, Review $review)
@@ -91,13 +94,17 @@ class ReviewController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from storage by admin.
      *
-     * @param  \App\Models\Review  $review
-     * @return Response
+     * @param  Review  $review
+     * @param  ReviewService  $reviewService
+     *
+     * @return RedirectResponse
      */
-    public function destroy(Review $review)
+    public function destroy(Review $review, ReviewService $reviewService): RedirectResponse
     {
-        //
+        $reviewService->destroy($review);
+
+        return redirect()->route('admin.reviews.index');
     }
 }

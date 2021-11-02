@@ -11,5 +11,8 @@ return [
     ],
     'reviews' => [
         'paginator' => 10,
+    ],
+    'user' => [
+        'paginator' => 25,
     ]
 ];

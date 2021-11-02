@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Administrator\StoreAdministratorRequest;
@@ -22,7 +22,7 @@ class AdministratorController extends Controller
     {
         $administrators = $administratorService->getAllWithoutCurrent();
 
-        return view('pages.admin.administrators.index', ['administrators' => $administrators]);
+        return view('pages.administrators.index', ['administrators' => $administrators]);
     }
 
     /**
@@ -32,7 +32,7 @@ class AdministratorController extends Controller
      */
     public function create(): View
     {
-        return view('pages.admin.administrators.create');
+        return view('pages.administrators.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class AdministratorController extends Controller
      */
     public function edit(User $administrator): View
     {
-        return view('pages.admin.administrators.edit', ['admin' => $administrator]);
+        return view('pages.administrators.edit', ['admin' => $administrator]);
     }
 
     /**

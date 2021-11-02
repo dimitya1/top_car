@@ -23,7 +23,22 @@
             @inject('ratingService', 'App\Services\RatingService')
             @foreach($reviews as $review)
                 <div class="p-12 mb-8 mt-8 flex flex-col items-start border-2 border-white">
-                    <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-lg font-medium tracking-widest">{{ $review->carModel->carBrand->name.' '.$review->carModel->name }}</span>
+                    <div class="w-full flex justify-between">
+                        <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-lg font-medium tracking-widest">{{ $review->carModel->carBrand->name.' '.$review->carModel->name }}</span>
+                        @if(auth()->user() && auth()->user()->hasRole(\App\Models\Role::ROLE_ADMIN))
+                                <form method="POST" action="{{ route('admin.reviews.destroy', ['review' => $review]) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="flex items-center px-2 py-2 font-medium tracking-wide
+                                                    text-black transition-colors duration-200 transform bg-red-400 rounded-md hover:bg-red-500 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-80">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        </svg>
+                                        <span class="mx-1">Видалити</span>
+                                    </button>
+                                </form>
+                        @endif
+                    </div>
                     <h2 class="sm:text-3xl text-2xl title-font font-medium text-gray-300 mt-4 mb-4">
                         {{ $review->title }}
                     </h2>
@@ -35,34 +50,34 @@
                                 </div>
                             </div>
                         @endif
-                            @if($review->engine)
-                                <div class="p-2 sm:w-1/2 w-full">
-                                    <div class="bg-gray-100 rounded flex p-4 h-full items-center">
-                                        <span class="title-font font-medium">@lang('app.review.engine'){{ $review->engine }}</span>
-                                    </div>
+                        @if($review->engine)
+                            <div class="p-2 sm:w-1/2 w-full">
+                                <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+                                    <span class="title-font font-medium">@lang('app.review.engine'){{ $review->engine }}</span>
                                 </div>
-                            @endif
-                            @if($review->power)
-                                <div class="p-2 sm:w-1/2 w-full">
-                                    <div class="bg-gray-100 rounded flex p-4 h-full items-center">
-                                        <span class="title-font font-medium">@lang('app.review.power'){{ $review->power }}</span>
-                                    </div>
+                            </div>
+                        @endif
+                        @if($review->power)
+                            <div class="p-2 sm:w-1/2 w-full">
+                                <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+                                    <span class="title-font font-medium">@lang('app.review.power'){{ $review->power }}</span>
                                 </div>
-                            @endif
-                            @if($review->consumption_city)
-                                <div class="p-2 sm:w-1/2 w-full">
-                                    <div class="bg-gray-100 rounded flex p-4 h-full items-center">
-                                        <span class="title-font font-medium">@lang('app.review.consumption_city'){{ $review->consumption_city }}</span>
-                                    </div>
+                            </div>
+                        @endif
+                        @if($review->consumption_city)
+                            <div class="p-2 sm:w-1/2 w-full">
+                                <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+                                    <span class="title-font font-medium">@lang('app.review.consumption_city'){{ $review->consumption_city }}</span>
                                 </div>
-                            @endif
-                            @if($review->consumption_highway)
-                                <div class="p-2 sm:w-1/2 w-full">
-                                    <div class="bg-gray-100 rounded flex p-4 h-full items-center">
-                                        <span class="title-font font-medium">@lang('app.review.consumption_highway'){{ $review->consumption_highway }}</span>
-                                    </div>
+                            </div>
+                        @endif
+                        @if($review->consumption_highway)
+                            <div class="p-2 sm:w-1/2 w-full">
+                                <div class="bg-gray-100 rounded flex p-4 h-full items-center">
+                                    <span class="title-font font-medium">@lang('app.review.consumption_highway'){{ $review->consumption_highway }}</span>
                                 </div>
-                            @endif
+                            </div>
+                        @endif
                     </div>
                     @if($review->content)
                         <p class="leading-relaxed mb-8">

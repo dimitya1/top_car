@@ -1,12 +1,13 @@
 <?php
 
 use App\Http\Controllers\AboutUsController;
-use App\Http\Controllers\Admin\AdministratorController;
+use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\AuthorizationController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\CheckIsAdmin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,15 @@ Route::get('personal', [UserController::class, 'index'])->name('profile');
 
 Route::resource('reviews', ReviewController::class);
 
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware([CheckIsAdmin::class])->group(function () {
     Route::resource('administrators', AdministratorController::class);
+    Route::name('reviews.')->prefix('reviews')->group(function () {
+        Route::get('', [ReviewController::class, 'index'])->name('index');
+        Route::delete('{review}', [ReviewController::class, 'destroy'])->name('destroy');;
+    });
+    Route::name('users.')->prefix('users')->group(function () {
+        Route::get('', [UserController::class, 'adminIndex'])->name('index');
+        Route::post('/{user}/clear-authorisation', [UserController::class, 'clearAuthorisation'])->name('clear-authorisation');;
+        Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');;
+    });
 });

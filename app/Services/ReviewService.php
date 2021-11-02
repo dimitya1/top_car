@@ -48,4 +48,9 @@ class ReviewService
 
         return $this->model->all();
     }
+
+    public function destroy(Review $review): bool
+    {
+        return $review->delete();
+    }
 }

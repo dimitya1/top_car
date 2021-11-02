@@ -15,6 +15,35 @@ class UserController extends Controller
 {
     public function index(): View
     {
-        return view('pages.userpage');
+        return view('pages.user.userpage');
+    }
+
+    public function adminIndex(UserService $userService): View
+    {
+        $users = $userService->getAllForAdminTable();
+
+        return view('pages.user.admin-index', ['users' => $users]);
+    }
+
+    public function clearAuthorisation(User $user, UserService $userService): RedirectResponse
+    {
+        $userService->clearSessionsAndTokens($user);
+
+        return redirect()->route('admin.users.index')
+            ->with('successful_authorisation_delete', 'Дані для авторизації успішно видалено');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param User $user
+     * @param UserService $userService
+     * @return RedirectResponse
+     */
+    public function destroy(User $user, UserService $userService): RedirectResponse
+    {
+        $userService->destroy($user);
+
+        return redirect()->route('admin.users.index')->with('successful_destroy', 'Запис усішно видалено');
     }
 }

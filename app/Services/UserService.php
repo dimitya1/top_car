@@ -2,9 +2,13 @@
 
 namespace App\Services;
 
+use App\Models\Role;
 use App\Models\User;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class UserService
 {
@@ -27,5 +31,26 @@ class UserService
         $data['password'] = Hash::make($data['password']);
 
         return $this->model->create($data);
+    }
+
+    public function getAllForAdminTable(): LengthAwarePaginator
+    {
+        return $this->model->newQuery()->get()->filter(function (User $user) {
+            return $user->hasRole(Role::ROLE_USER);
+        })->toQuery()->latest()->paginate(config('topcar.users.paginator', 25));
+    }
+
+    public function clearSessionsAndTokens(User $user): void
+    {
+        //clearing sessions powered by MySQL table
+        DB::table('sessions')->where('user_id', $user->id)->delete();
+
+        //clearing API auth tokens
+        $user->tokens()->delete();
+    }
+
+    public function destroy(User $administrator): bool
+    {
+        return $administrator->delete();
     }
 }

@@ -25,7 +25,7 @@ class AdministratorService
         });
     }
 
-    public function destroy(User $administrator): ?bool
+    public function destroy(User $administrator): bool
     {
         return $administrator->delete();
     }
