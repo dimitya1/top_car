@@ -9,19 +9,64 @@
     <section class="text-gray-200 body-font overflow-hidden bg-gradient-to-tr from-gray-800 via-gray-700 to-red-900">
         @include('layouts.header')
         <div class="container px-5 py-10 mx-auto">
-            @auth
-                @if(request()->own)
-                    <a href="{{ route('reviews.index') }}" class="ml-12 p-2 pl-5 pr-5 bg-blue-500 text-gray-100 text-lg rounded-lg
-                    focus:border-4 border-blue-300">@lang('app.review.show_all')</a>
-                @else
-                    <a href="{{ route('reviews.index', ['own' => true]) }}" class="ml-12 p-2 pl-5 pr-5 bg-transparent border-2
-                    border-blue-500 text-blue-500 text-lg rounded-lg hover:bg-blue-500 hover:text-gray-100 focus:border-4 focus:border-blue-300">@lang('app.review.filter_own')</a>
-                @endif
-            @endauth
-                <a href="{{ route('reviews.create') }}" class="mr-auto mr-12 p-2 pl-5 pr-5 bg-blue-500 text-gray-100 text-lg rounded-lg
-                    focus:border-4 border-blue-300">Написати власний відгук</a>
+
+            @if(!request()->car_model_id && !request()->car_brand_id)
+                @auth
+                    <div class="mb-6">
+                        @if(request()->own)
+                            <a href="{{ route('reviews.index') }}" class="p-2 pl-5 pr-5 bg-blue-500 text-gray-100 text-lg rounded-lg
+                            focus:border-4 border-blue-600">@lang('app.review.show_all')</a>
+                        @else
+                            <a href="{{ route('reviews.index', ['own' => true]) }}" class="p-2 pl-5 pr-5 bg-blue-500 border-2
+                            border-blue-500 text-white-500 text-lg rounded-lg hover:bg-blue-600 hover:text-gray-100 focus:border-4 focus:border-blue-300">@lang('app.review.filter_own')</a>
+                        @endif
+                    </div>
+                @endauth
+            @endif
+
+            <br>
+
+            <a href="{{ route('reviews.create') }}" class="mr-auto mr-12 p-2 pl-5 pr-5 bg-blue-500 text-gray-100 text-lg rounded-lg
+                   hover:bg-blue-600 hover:text-gray-100 focus:border-4 focus:border-blue-300">Написати власний відгук</a>
+
+            @if(!request()->own)
+                <div class="mt-10 mb-20">
+                    <p class="mb-2">Або відфільтрувати відгуи за конкретним авто</p>
+                    <form method="GET" action="{{ route('reviews.index') }}">
+                        <div class="flex flex-wrap">
+                            <div class="w-4/5">
+                                @livewire('car-brands-models-select-filter')
+                            </div>
+                            <div class="sm:w-1/5 m:w-full w-full mt-7">
+                                @if(request()->car_model_id || request()->car_brand_id)
+                                    <div class="flex space-x-4 sm:ml-8">
+                                        <div class="w-1/2">
+                                            <div class="mt-2">
+                                                <a href="{{ route('reviews.index') }}" class="text-white bg-gray-800 border-0 py-2 px-6
+                                                    focus:outline-none hover:bg-gray-900 rounded">Очистити</a>
+                                            </div>
+                                        </div>
+                                        <div class="w-1/2">
+                                            <button class="text-white bg-indigo-500 border-0 py-2 px-6
+                                                focus:outline-none hover:bg-indigo-600 rounded">Уперед</button>
+                                        </div>
+                                    </div>
+                                @else
+                                    <button class="text-white bg-indigo-500 border-0 py-2 px-6 ml-10
+                                        focus:outline-none hover:bg-indigo-600 rounded">Уперед</button>
+                                @endif
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            @endif
+
+            @if(request()->car_model_id)
+                @include('pages.reviews.car_model')
+            @endif
+
             @inject('ratingService', 'App\Services\RatingService')
-            @foreach($reviews as $review)
+            @forelse($reviews as $review)
                 <div class="p-12 mb-8 mt-8 flex flex-col items-start border-2 border-white">
                     <div class="w-full flex justify-between">
                         <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-lg font-medium tracking-widest">{{ $review->carModel->carBrand->name.' '.$review->carModel->name }}</span>
@@ -136,7 +181,9 @@
                         </span>
                     </div>
                 </div>
-            @endforeach
+            @empty
+                <h1>Нажаль, не знайдено відгуків за вказаними критеріями</h1>
+            @endforelse
             <div class="bg-gray-300 my-5">
                 {{ $reviews->appends(request()->input())->links() }}
             </div>
