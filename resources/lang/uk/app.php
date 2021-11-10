@@ -128,7 +128,7 @@ return [
     ],
     'admin' => [
         'administrator' => [
-            'index' => 'Адміністрування адмінів',
+            'index' => 'Адміністратори',
           'name' => "Ім'я",
           'email' => "Email",
           'phone_number' => "Моюільний номер",

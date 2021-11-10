@@ -51,10 +51,18 @@
                                 <tr class="text-gray-700">
                                     <td class="px-4 py-3 border">
                                         <div class="flex items-center text-sm">
-                                            <div class="relative w-8 h-8 mr-3 rounded-full md:block">
-                                                <img class="object-cover w-full h-full rounded-full" src="https://images.pexels.com/photos/5212324/pexels-photo-5212324.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="" loading="lazy" />
-                                                <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                                            <div class="relative w-12 h-12 mr-3 rounded-full md:block">
+                                                @if($admin->avatar)
+                                                    <img class="object-cover w-full h-full rounded-full"
+                                                         src="{{ url("storage/$admin->avatar") }}" alt="{{ $admin->name }}" loading="lazy" />
+                                                    <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                                                @else
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                    </svg>
+                                                @endif
                                             </div>
+
                                             <div>
                                                 <p class="font-semibold text-black">{{ $admin->name }}</p>
                                                 <p class="text-xs text-gray-600">Адміністратор</p>

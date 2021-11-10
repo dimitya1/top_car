@@ -13,6 +13,7 @@ class StoreAdministratorRequest extends FormRequest
             'email'        => ['required', 'string', 'min:9', 'max:120', 'email', 'unique:users,email'],
             'phone_number' => ['required', 'string', 'min:7', 'max:15'],
             'password'     => ['required', 'min:4', 'max:60'],
+            'avatar'       => ['nullable', 'image', 'max:5120', 'dimensions:min_width=100,min_height=200'],
         ];
     }
 
@@ -23,6 +24,7 @@ class StoreAdministratorRequest extends FormRequest
             'email'        => __('app.admin.administrator.email'),
             'phone_number' => __('app.admin.administrator.phone_number'),
             'password'     => __('app.admin.administrator.password'),
+            'avatar'       => 'Аватар',
         ];
     }
 }
