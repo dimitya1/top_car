@@ -7,12 +7,15 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\CausesActivity;
+use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Permission\Traits\HasPermissions;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasRoles, HasPermissions, HasApiTokens, HasFactory, Notifiable;
+    use HasRoles, HasPermissions, HasApiTokens, HasFactory, Notifiable, LogsActivity, CausesActivity;
 
     /**
      * The attributes that are mass assignable.
@@ -56,5 +59,10 @@ class User extends Authenticatable
     public function ratings(): hasMany
     {
         return $this->hasMany(Rating::class);
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()->logFillable()->logOnlyDirty();
     }
 }

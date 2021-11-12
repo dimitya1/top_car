@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('v1')->group(function () {
+Route::prefix('v1')->middleware(['set_api_log'])->group(function () {
     Route::prefix('token')->name('token.')->group(function () {
         Route::post('request', [AuthorizationController::class, 'requestToken'])->name('request');
     });

@@ -21,21 +21,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('', [HomeController::class, 'index'])->name('home');
+Route::middleware(['set_website_log'])->group(function () {
+    Route::get('', [HomeController::class, 'index'])->name('home');
 
-Route::prefix('authorisation')->name('auth.')->group(function () {
-    Route::post('login', [AuthorizationController::class, 'login'])->name('login');
-    Route::post('register', [AuthorizationController::class, 'register'])->name('register');
-    Route::post('logout', [AuthorizationController::class, 'logout'])->name('logout');
+    Route::prefix('authorisation')->name('auth.')->group(function () {
+        Route::post('login', [AuthorizationController::class, 'login'])->name('login');
+        Route::post('register', [AuthorizationController::class, 'register'])->name('register');
+        Route::post('logout', [AuthorizationController::class, 'logout'])->name('logout');
+    });
+
+    Route::get('contacts', [ContactController::class, 'index'])->name('contacts');
+    Route::get('about', [AboutUsController::class, 'index'])->name('about');
+    Route::get('personal', [UserController::class, 'index'])->name('profile');
+
+    Route::resource('reviews', ReviewController::class);
 });
 
-Route::get('contacts', [ContactController::class, 'index'])->name('contacts');
-Route::get('about', [AboutUsController::class, 'index'])->name('about');
-Route::get('personal', [UserController::class, 'index'])->name('profile');
-
-Route::resource('reviews', ReviewController::class);
-
-Route::prefix('admin')->name('admin.')->middleware([CheckIsAdmin::class])->group(function () {
+Route::prefix('admin')->middleware(['set_admin_log'])->name('admin.')->middleware([CheckIsAdmin::class])->group(function () {
     Route::resource('administrators', AdministratorController::class);
     Route::name('reviews.')->prefix('reviews')->group(function () {
         Route::get('', [ReviewController::class, 'index'])->name('index');
