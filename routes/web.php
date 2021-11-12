@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\Admin\ActivityLogController;
 use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\AuthorizationController;
 use App\Http\Controllers\ContactController;
@@ -37,7 +38,7 @@ Route::middleware(['set_website_log'])->group(function () {
     Route::resource('reviews', ReviewController::class);
 });
 
-Route::prefix('admin')->middleware(['set_admin_log'])->name('admin.')->middleware([CheckIsAdmin::class])->group(function () {
+Route::prefix('admin')->middleware(['set_admin_panel_log', CheckIsAdmin::class])->name('admin.')->group(function () {
     Route::resource('administrators', AdministratorController::class);
     Route::name('reviews.')->prefix('reviews')->group(function () {
         Route::get('', [ReviewController::class, 'index'])->name('index');
@@ -47,5 +48,9 @@ Route::prefix('admin')->middleware(['set_admin_log'])->name('admin.')->middlewar
         Route::get('', [UserController::class, 'adminIndex'])->name('index');
         Route::post('/{user}/clear-authorisation', [UserController::class, 'clearAuthorisation'])->name('clear-authorisation');;
         Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');;
+    });
+
+    Route::name('activity_log.')->prefix('activity-log')->group(function () {
+        Route::get('', [ActivityLogController::class, 'index'])->name('index');
     });
 });

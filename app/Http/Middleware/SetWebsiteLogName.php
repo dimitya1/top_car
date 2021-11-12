@@ -2,9 +2,9 @@
 
 namespace App\Http\Middleware;
 
+use App\Services\ActivityLogService;
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Config;
 
 class SetWebsiteLogName
@@ -18,8 +18,8 @@ class SetWebsiteLogName
      */
     public function handle(Request $request, Closure $next): mixed
     {
-        if (Config::get('activitylog.default_log_name') !== 'website') {
-            Config::set('activitylog.default_log_name', 'website');
+        if (Config::get('activitylog.default_log_name') !== ActivityLogService::TYPE_WEBSITE) {
+            Config::set('activitylog.default_log_name', ActivityLogService::TYPE_WEBSITE);
         }
 
         return $next($request);

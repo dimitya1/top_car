@@ -2,9 +2,9 @@
 
 namespace App\Http\Middleware;
 
+use App\Services\ActivityLogService;
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Config;
 
 class SetAPILogName
@@ -18,8 +18,8 @@ class SetAPILogName
      */
     public function handle(Request $request, Closure $next): mixed
     {
-        if (Config::get('activitylog.default_log_name') !== 'API') {
-            Config::set('activitylog.default_log_name', 'API');
+        if (Config::get('activitylog.default_log_name') !== ActivityLogService::TYPE_API) {
+            Config::set('activitylog.default_log_name', ActivityLogService::TYPE_API);
         }
 
         return $next($request);

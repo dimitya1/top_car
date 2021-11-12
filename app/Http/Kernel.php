@@ -6,7 +6,7 @@ use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\EncryptCookies;
 use App\Http\Middleware\PreventRequestsDuringMaintenance;
 use App\Http\Middleware\RedirectIfAuthenticated;
-use App\Http\Middleware\SetAdminLogName;
+use App\Http\Middleware\SetAdminPanelLogName;
 use App\Http\Middleware\SetAPILogName;
 use App\Http\Middleware\SetWebsiteLogName;
 use App\Http\Middleware\TrimStrings;
@@ -95,7 +95,7 @@ class Kernel extends HttpKernel
             'verified'         => EnsureEmailIsVerified::class,
 
             //custom
-            'set_admin_log'    => SetAdminLogName::class,
+            'set_admin_panel_log'    => SetAdminPanelLogName::class,
             'set_website_log'  => SetWebsiteLogName::class,
             'set_api_log'      => SetAPILogName::class,
         ];
