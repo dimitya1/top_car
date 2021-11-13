@@ -39,7 +39,7 @@ class AdministratorService
         if (isset($data['new_password']) && !is_null($data['new_password'])) {
             $data['password'] = Hash::make($data['new_password']);
         }
-        if ($data['new_avatar']) {
+        if (isset($data['new_avatar'])) {
             //deleting old avatar in case user has it
             if ($administrator->avatar) {
                 Storage::disk('public')->delete($administrator->avatar);
@@ -59,7 +59,7 @@ class AdministratorService
         $data['show_phone_number'] = 0;
         $data['show_email'] = 0;
 
-        if ($data['avatar']) {
+        if (isset($data['avatar'])) {
             $fieldName = self::storeAvatar($data['avatar'], $data['name']);
             $data['avatar'] = $fieldName;
         }

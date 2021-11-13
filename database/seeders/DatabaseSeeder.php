@@ -2,8 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\CarBrand;
-use App\Models\CarModel;
 use App\Models\Feedback;
 use App\Models\Permission;
 use App\Models\Rating;

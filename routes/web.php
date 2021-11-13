@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\Admin\ActivityLogController;
 use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\AuthorizationController;
 use App\Http\Controllers\ContactController;
@@ -21,21 +22,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('', [HomeController::class, 'index'])->name('home');
+Route::middleware(['set_website_log'])->group(function () {
+    Route::get('', [HomeController::class, 'index'])->name('home');
 
-Route::prefix('authorisation')->name('auth.')->group(function () {
-    Route::post('login', [AuthorizationController::class, 'login'])->name('login');
-    Route::post('register', [AuthorizationController::class, 'register'])->name('register');
-    Route::post('logout', [AuthorizationController::class, 'logout'])->name('logout');
+    Route::prefix('authorisation')->name('auth.')->group(function () {
+        Route::post('login', [AuthorizationController::class, 'login'])->name('login');
+        Route::post('register', [AuthorizationController::class, 'register'])->name('register');
+        Route::post('logout', [AuthorizationController::class, 'logout'])->name('logout');
+    });
+
+    Route::get('contacts', [ContactController::class, 'index'])->name('contacts');
+    Route::get('about', [AboutUsController::class, 'index'])->name('about');
+    Route::get('personal', [UserController::class, 'index'])->name('profile');
+
+    Route::resource('reviews', ReviewController::class);
 });
 
-Route::get('contacts', [ContactController::class, 'index'])->name('contacts');
-Route::get('about', [AboutUsController::class, 'index'])->name('about');
-Route::get('personal', [UserController::class, 'index'])->name('profile');
-
-Route::resource('reviews', ReviewController::class);
-
-Route::prefix('admin')->name('admin.')->middleware([CheckIsAdmin::class])->group(function () {
+Route::prefix('admin')->middleware(['set_admin_panel_log', CheckIsAdmin::class])->name('admin.')->group(function () {
     Route::resource('administrators', AdministratorController::class);
     Route::name('reviews.')->prefix('reviews')->group(function () {
         Route::get('', [ReviewController::class, 'index'])->name('index');
@@ -45,5 +48,9 @@ Route::prefix('admin')->name('admin.')->middleware([CheckIsAdmin::class])->group
         Route::get('', [UserController::class, 'adminIndex'])->name('index');
         Route::post('/{user}/clear-authorisation', [UserController::class, 'clearAuthorisation'])->name('clear-authorisation');;
         Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');;
+    });
+
+    Route::name('activity_log.')->prefix('activity-log')->group(function () {
+        Route::get('', [ActivityLogController::class, 'index'])->name('index');
     });
 });
