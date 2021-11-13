@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\CarBrand;
 use App\Models\CarModel;
+use App\Models\Feedback;
 use App\Models\Permission;
 use App\Models\Rating;
 use App\Models\Review;
@@ -21,6 +22,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        //disable logging for test data
+        activity()->disableLogging();
+
         Role::create(['name' => Role::ROLE_ADMIN]);
         Role::create(['name' => Role::ROLE_USER]);
 
@@ -45,8 +49,14 @@ class DatabaseSeeder extends Seeder
             $user->assignRole(Role::ROLE_USER);
         });
 
+        //creating real car brands and models
         Artisan::call('topcar:brands-models:save');
+
         Review::factory(350)->create();
         Rating::factory(1200)->create();
+
+        Feedback::factory(45)->create();
+
+        activity()->enableLogging();
     }
 }
