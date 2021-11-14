@@ -18,9 +18,9 @@ class Feedback extends Model
         'created_by',
         'handled_by',
         'message',
-        'created_name',
-        'created_email',
-        'created_phone_number',
+        'creator_name',
+        'creator_email',
+        'creator_phone_number',
         'is_handled',
     ];
 

@@ -16,6 +16,10 @@ class FeedbackService
 
     public function save(array $data): Feedback
     {
+        if (auth()->user()) {
+            $data['created_by'] = auth()->id();
+        }
+
         return $this->model->create($data);
     }
 }

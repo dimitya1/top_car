@@ -36,18 +36,17 @@ class FeedbackStatusToggle extends Component
 
     public function toggleStatus()
     {
-        $this->feedback->is_handled = !$this->feedback->is_handled;
-        $this->feedback->save();
-
         if ($this->feedback->is_handled) {
-            $this->feedback->handled_by = auth()->id();
-            $this->divBackgroundClass = self::BG_GREEN;
-            $this->labelClass = self::TRANSLATE_GREEN;
-        } else {
             $this->feedback->handled_by = null;
             $this->divBackgroundClass = self::BG_GRAY;
             $this->labelClass = self::TRANSLATE_GRAY;
+        } else {
+            $this->feedback->handled_by = auth()->id();
+            $this->divBackgroundClass = self::BG_GREEN;
+            $this->labelClass = self::TRANSLATE_GREEN;
         }
+        $this->feedback->is_handled = !$this->feedback->is_handled;
+
         $this->feedback->save();
         //freshing to update relations
         $this->feedback = $this->feedback->fresh();

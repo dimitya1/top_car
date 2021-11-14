@@ -94,7 +94,7 @@
             @if(!auth()->user() || (auth()->user()->hasRole(\App\Models\Role::ROLE_USER)))
                 <a href="{{ route('reviews.index') }}" class="link">@lang('app.layout.header.menu_list.reviews')</a>
             @endif
-            <a href="{{ route('contacts') }}" class="link">@lang('app.layout.header.menu_list.contacts')</a>
+            <a href="{{ route('contact_us.index') }}" class="link">@lang('app.layout.header.menu_list.contacts')</a>
             <a href="{{ config('app.url').'/api/v1/documentation' }}" target="_blank" class="link">@lang('app.layout.header.menu_list.for_developers')</a>
             @auth
                 <a href="{{ route('profile') }}" class="link">@lang('app.layout.header.menu_list.profile')</a>

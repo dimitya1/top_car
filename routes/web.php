@@ -32,8 +32,8 @@ Route::middleware(['set_website_log'])->group(function () {
         Route::post('logout', [AuthorizationController::class, 'logout'])->name('logout');
     });
 
-    Route::get('contacts', [FeedbackController::class, 'index'])->name('contacts');
-    Route::post('contacts', [FeedbackController::class, 'store'])->name('contacts.store');
+    Route::get('contact-us', [FeedbackController::class, 'index'])->name('contact_us.index');
+    Route::post('contact-us', [FeedbackController::class, 'store'])->name('contact_us.store');
     Route::get('about', [AboutUsController::class, 'index'])->name('about');
     Route::get('personal', [UserController::class, 'index'])->name('profile');
 

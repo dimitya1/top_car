@@ -122,6 +122,12 @@ return [
           'other'  => 'інше',
         ],
     ],
+    'contact_us' => [
+        'creator_name' => "Ім'я",
+        'creator_email' => "Email для зв'язку",
+        'creator_phone_number' => 'Номер телефону',
+        'message' => 'Повідомлення',
+    ],
     'yes_no' => [
         'Так',
         'Ні',
