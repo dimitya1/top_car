@@ -23,7 +23,7 @@ class FeedbackFactory extends Factory
         $isHandled = rand(0, 1);
 
         return [
-            'creator_id' => $creator?->id,
+            'created_by' => $creator?->id,
             'handled_by' => $isHandled
                 ? User::query()->get()->filter(function (User $user) {
                     return $user->hasRole(Role::ROLE_ADMIN);
@@ -40,7 +40,6 @@ class FeedbackFactory extends Factory
                 ? $creator->phone_number
                 : $this->faker->e164PhoneNumber(),
             'is_handled' => $isHandled,
-            'comment'    => $isHandled ? $this->faker->realText(rand(10, 30)) : null,
         ];
     }
 }

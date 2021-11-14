@@ -14,5 +14,12 @@ return [
     ],
     'user' => [
         'paginator' => 25,
-    ]
+    ],
+    'feedback' => [
+        'paginator' => 25,
+    ],
+    'telegram' => [
+        'token' => env('TELEGRAM_BOT_TOKEN'),
+        'chat_name' => env('TELEGRAM_CHAT_NAME'),
+    ],
 ];

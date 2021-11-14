@@ -41,7 +41,7 @@ class ActivityLogService
             $row['action']     = $record->event;
             $row['causer']     = $record->causer_type;
             $row['properties'] = json_decode($record->properties, true);
-            $row['subject']    = $record->subject_type;
+            $row['subject']    = $record->subject_type . $record->subject_id;
             $row['date']       = Carbon::parse($record->created_at);
             $row['backgroundColor'] = match ($row['action']) {
                 self::ACTION_CREATED => 'green',

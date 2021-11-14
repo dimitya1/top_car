@@ -4,7 +4,8 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\Admin\ActivityLogController;
 use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\AuthorizationController;
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\Admin\FeedbackController as AdminFeedbackController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
@@ -31,7 +32,8 @@ Route::middleware(['set_website_log'])->group(function () {
         Route::post('logout', [AuthorizationController::class, 'logout'])->name('logout');
     });
 
-    Route::get('contacts', [ContactController::class, 'index'])->name('contacts');
+    Route::get('contacts', [FeedbackController::class, 'index'])->name('contacts');
+    Route::post('contacts', [FeedbackController::class, 'store'])->name('contacts.store');
     Route::get('about', [AboutUsController::class, 'index'])->name('about');
     Route::get('personal', [UserController::class, 'index'])->name('profile');
 
@@ -39,6 +41,7 @@ Route::middleware(['set_website_log'])->group(function () {
 });
 
 Route::prefix('admin')->middleware(['set_admin_panel_log', CheckIsAdmin::class])->name('admin.')->group(function () {
+    Route::get('feedback', [AdminFeedbackController::class, 'index']);
     Route::resource('administrators', AdministratorController::class);
     Route::name('reviews.')->prefix('reviews')->group(function () {
         Route::get('', [ReviewController::class, 'index'])->name('index');

@@ -68,7 +68,7 @@ class User extends Authenticatable
 
     public function createdFeedback(): hasMany
     {
-        return $this->hasMany(Feedback::class, 'creator_id');
+        return $this->hasMany(Feedback::class, 'created_by');
     }
 
     public function handledFeedback(): hasMany

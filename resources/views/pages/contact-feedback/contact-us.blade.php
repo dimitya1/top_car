@@ -18,13 +18,14 @@
                         <a href="https://facebook.com" target="_blank" class="link-facebook fb-img">@lang('app.contacts.facebook_text')</a>
                     </div>
                 </div>
-                <form class="contact-form">
+                <form class="contact-form" method="POST" action="{{ route('contacts.store') }}">
+                    @csrf
                     <h2 class="form-title">@lang('app.contacts.wanna_help')</h2>
-                    <input type="text" class="name" placeholder="@lang('app.contacts.contact_form.name')" @auth value="{{ auth()->user()->name }}" @endauth>
-                    <textarea type="text" class="message" placeholder="@lang('app.contacts.contact_form.message')"></textarea>
+                    <input type="text" name="name" class="name" placeholder="@lang('app.contacts.contact_form.name')" @auth value="{{ auth()->user()->name }}" @endauth>
+                    <textarea type="text" name="message" class="message" placeholder="@lang('app.contacts.contact_form.message')"></textarea>
                     <p class="form-text">@lang('app.contacts.contact_form.help')</p>
-                    <input type="tel" class="form-phone" placeholder="@lang('app.contacts.contact_form.phone_number')">
-                    <input type="email" class="form-email" placeholder="@lang('app.contacts.contact_form.email')">
+                    <input type="tel" name="phone_number" class="form-phone" placeholder="@lang('app.contacts.contact_form.phone_number')">
+                    <input type="email" name="email" class="form-email" placeholder="@lang('app.contacts.contact_form.email')">
                     <div class="btn-center">
                         <input type="submit" value="@lang('app.contacts.contact_form.send_request')" class="btn">
                     </div>

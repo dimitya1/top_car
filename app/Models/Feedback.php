@@ -22,7 +22,6 @@ class Feedback extends Model
         'created_email',
         'created_phone_number',
         'is_handled',
-        'comment',
     ];
 
     public function getActivitylogOptions(): LogOptions
@@ -32,7 +31,7 @@ class Feedback extends Model
 
     public function user(): belongsTo
     {
-        return $this->belongsTo(User::class, 'creator_id');
+        return $this->belongsTo(User::class, 'created_by');
     }
 
     public function administrator(): belongsTo

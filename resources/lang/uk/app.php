@@ -126,6 +126,7 @@ return [
         'Так',
         'Ні',
     ],
+    'created_at' => 'створений',
     'admin' => [
         'administrator' => [
             'index' => 'Адміністратори',
@@ -145,6 +146,18 @@ return [
         ],
         'users' => [
             'index' => 'Користувачі',
+        ],
+        'feedback' => [
+            'created_by' => 'Хто створив',
+            'handled_by' => 'Хто опрацював',
+            'message' => 'Текст повідомлення',
+            'creator_name' => "Ім'я автора",
+            'creator_email' => "Email для зв'язку",
+            'creator_phone_number' => "Телефон для зв'язку",
+            'is_handled' => "Опрацьован",
+            'comment' => "Коментар адміністратора",
+            'created_without_authorisation' => "Створений неавторизованим користувачем",
+            'not_handled_yet' => "Ще не опрацьований",
         ],
     ]
 ];
