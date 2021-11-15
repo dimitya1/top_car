@@ -23,24 +23,25 @@ class DatabaseSeeder extends Seeder
         //disable logging for test data
         activity()->disableLogging();
 
-        Role::create(['name' => Role::ROLE_ADMIN]);
+        $adminRole = Role::create(['name' => Role::ROLE_ADMIN]);
         Role::create(['name' => Role::ROLE_USER]);
 
         Permission::create(['name' => Permission::PERMISSION_MANAGE_ADMINS]);
         Permission::create(['name' => Permission::PERMISSION_MODERATE_REVIEWS]);
         Permission::create(['name' => Permission::PERMISSION_MODERATE_CARS]);
+        Permission::create(['name' => Permission::PERMISSION_MODERATE_USERS]);
+        Permission::create(['name' => Permission::PERMISSION_ACCESS_FOR_DEVELOPERS]);
+        $adminRole->givePermissionTo(Permission::PERMISSION_ACCESS_FOR_DEVELOPERS);
 
-        //creating an admin
+        //creating a super admin with all permissions
         $admin = User::factory()->create([
             'name'  => 'Administrator',
             'email' => 'admin@email.com',
         ]);
         $admin->assignRole(Role::ROLE_ADMIN);
-        $admin->givePermissionTo([
-            Permission::PERMISSION_MANAGE_ADMINS,
-            Permission::PERMISSION_MODERATE_REVIEWS,
-            Permission::PERMISSION_MODERATE_CARS,
-        ]);
+        foreach (Permission::$allPermissions as $permission) {
+            $admin->givePermissionTo($permission);
+        }
 
         $regularUsers = User::factory(30)->create();
         $regularUsers->each(function ($user) {

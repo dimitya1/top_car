@@ -41,7 +41,7 @@ Route::middleware(['set_website_log'])->group(function () {
 });
 
 Route::prefix('admin')->middleware(['set_admin_panel_log', CheckIsAdmin::class])->name('admin.')->group(function () {
-    Route::get('feedback', [AdminFeedbackController::class, 'index']);
+    Route::get('feedback', [AdminFeedbackController::class, 'index'])->name('feedback.index');
     Route::resource('administrators', AdministratorController::class);
     Route::name('reviews.')->prefix('reviews')->group(function () {
         Route::get('', [ReviewController::class, 'index'])->name('index');
@@ -50,7 +50,7 @@ Route::prefix('admin')->middleware(['set_admin_panel_log', CheckIsAdmin::class])
     Route::name('users.')->prefix('users')->group(function () {
         Route::get('', [UserController::class, 'adminIndex'])->name('index');
         Route::get('{user}', [UserController::class, 'edit'])->name('edit');
-        Route::post('{user}', [UserController::class, 'update'])->name('update');
+        Route::put('{user}', [UserController::class, 'update'])->name('update');
         Route::post('/{user}/clear-authorisation', [UserController::class, 'clearAuthorisation'])->name('clear-authorisation');;
         Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');;
     });

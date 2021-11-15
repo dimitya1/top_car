@@ -84,22 +84,26 @@
             @endguest
         </div>
         <div class="menu">
-            @if(auth()->user() && auth()->user()->hasRole(\App\Models\Role::ROLE_ADMIN))
-                <a href="{{ route('admin.users.index') }}" class="link">@lang('app.admin.user.index')</a>
-                <a href="{{ route('admin.reviews.index') }}" class="link">@lang('app.admin.review.index')</a>
-{{--                <a href="#" class="link">@lang('app.admin.car_model.index')</a>--}}
-                <a href="{{ route('admin.administrators.index') }}" class="link">@lang('app.admin.administrator.index')</a>
-            @endif
             <a href="{{ route('about') }}" class="link">@lang('app.layout.header.menu_list.about_us')</a>
-            @if(!auth()->user() || (auth()->user()->hasRole(\App\Models\Role::ROLE_USER)))
-                <a href="{{ route('reviews.index') }}" class="link">@lang('app.layout.header.menu_list.reviews')</a>
-            @endif
+            <a href="{{ route('reviews.index') }}" class="link">@lang('app.layout.header.menu_list.reviews')</a>
             <a href="{{ route('contact_us.index') }}" class="link">@lang('app.layout.header.menu_list.contacts')</a>
-            <a href="{{ config('app.url').'/api/v1/documentation' }}" target="_blank" class="link">@lang('app.layout.header.menu_list.for_developers')</a>
+            @can(\App\Models\Permission::PERMISSION_ACCESS_FOR_DEVELOPERS)
+                <a href="{{ config('app.url').'/api/v1/documentation' }}" target="_blank" class="link">@lang('app.layout.header.menu_list.for_developers')</a>
+            @endcan
             @auth
                 <a href="{{ route('profile') }}" class="link">@lang('app.layout.header.menu_list.profile')</a>
             @endauth
         </div>
+        @if(auth()->user() && auth()->user()->hasRole(\App\Models\Role::ROLE_ADMIN))
+            <div class="menu">
+                <a href="{{ route('admin.users.index') }}" class="link">@lang('app.admin.user.index')</a>
+                <a href="{{ route('admin.reviews.index') }}" class="link">@lang('app.admin.review.index')</a>
+                {{--                <a href="#" class="link">@lang('app.admin.car_model.index')</a>--}}
+                <a href="{{ route('admin.administrators.index') }}" class="link">@lang('app.admin.administrator.index')</a>
+                <a href="{{ route('admin.feedback.index') }}" class="link">Фідбек</a>
+                <a href="{{ route('admin.activity_log.index') }}" class="link">Актівіту лог</a>
+            </div>
+        @endif
         @foreach($errors->all() as $error)
             <x-alert type="danger" :message="$error"/>
         @endforeach

@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Http\Traits\StoreAvatarTrait;
+use App\Models\Permission;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -9,9 +11,12 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class UserService
 {
+    use StoreAvatarTrait;
+
     public function __construct(protected User $model) {}
 
     public function getAll(): Collection
@@ -36,7 +41,21 @@ class UserService
     public function update(User $user, array $data): User
     {
         if (isset($data['new_password']) && !is_null($data['new_password'])) {
+            //todo clear tokens maybe
             $data['password'] = Hash::make($data['new_password']);
+        }
+        if (isset($data['new_avatar'])) {
+            //deleting old avatar in case user has it
+            if ($user->avatar) {
+                Storage::disk('public')->delete($user->avatar);
+            }
+            $fieldName = self::storeAvatar($data['new_avatar'], $data['name']);
+            $data['avatar'] = $fieldName;
+        }
+        if (isset($data["permission_access_api"])) {
+            $user->givePermissionTo(Permission::PERMISSION_ACCESS_FOR_DEVELOPERS);
+        } else {
+            $user->revokePermissionTo(Permission::PERMISSION_ACCESS_FOR_DEVELOPERS);
         }
 
         $user->update($data);

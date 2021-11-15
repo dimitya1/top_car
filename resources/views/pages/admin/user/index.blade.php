@@ -31,11 +31,12 @@
                                 <th class="px-4 py-3">Показувати email</th>
                                 <th class="px-4 py-3">Телефонний номер</th>
                                 <th class="px-4 py-3">Показувати телефонний номер</th>
+                                <th class="px-4 py-3">Має доступ до API</th>
                                 <th class="px-4 py-3">Створений</th>
                                 <th class="px-4 py-3">Оновлений</th>
-                                <th class="px-4 py-3">Очистити дані авторизації</th>
                                 <th class="px-4 py-3">Редагувати</th>
                                 <th class="px-4 py-3">Видалити користувача</th>
+                                <th class="px-4 py-3">Очистити дані авторизації</th>
                             </tr>
                         </thead>
                         <tbody class="bg-white">
@@ -72,6 +73,12 @@
                                     <td class="px-4 py-3 text-ms border">
                                         @lang("app.yes_no.$user->show_phone_number")
                                     </td>
+                                    <td class="px-4 py-3 text-ms border">
+                                        @php
+                                            $hasAccessToAPI = (int)$user->can(\App\Models\Permission::PERMISSION_ACCESS_FOR_DEVELOPERS);
+                                        @endphp
+                                        @lang("app.yes_no.$hasAccessToAPI")
+                                    </td>
                                     <td class="px-4 py-3 text-sm border">
                                         {!! $user->created_at->toDateTimeString().'<br>'.$user->created_at->diffForHumans() !!}
                                     </td>
@@ -79,18 +86,6 @@
                                         @if($user->created_at !== $user->updated_at)
                                             {!! $user->updated_at->toDateTimeString().'<br>'.$user->updated_at->diffForHumans() !!}
                                         @endif
-                                    </td>
-                                    <td class="px-4 py-3 text-sm border">
-                                        <form method="POST" action="{{ route('admin.users.clear-authorisation', ['user' => $user]) }}">
-                                            @csrf
-                                            <button class="flex items-center px-2 py-2 font-medium tracking-wide
-                                                text-black transition-colors duration-200 transform bg-blue-200 rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-100 focus:ring-opacity-80">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
-                                                </svg>
-                                                <span class="mx-1">Очистити</span>
-                                            </button>
-                                        </form>
                                     </td>
                                     <td class="px-4 py-3 text-sm border">
                                         <a href="{{ route('admin.users.edit', ['user' => $user]) }}" class="flex items-center px-2 py-2 font-medium tracking-wide
@@ -111,6 +106,18 @@
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                                 </svg>
                                                 <span class="mx-1">Видалити</span>
+                                            </button>
+                                        </form>
+                                    </td>
+                                    <td class="px-4 py-3 text-sm border">
+                                        <form method="POST" action="{{ route('admin.users.clear-authorisation', ['user' => $user]) }}">
+                                            @csrf
+                                            <button class="flex items-center px-2 py-2 font-medium tracking-wide
+                                                text-black transition-colors duration-200 transform bg-blue-200 rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-100 focus:ring-opacity-80">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                                                </svg>
+                                                <span class="mx-1">Очистити</span>
                                             </button>
                                         </form>
                                     </td>

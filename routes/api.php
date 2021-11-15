@@ -17,11 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::prefix('v1')->middleware(['set_api_log'])->group(function () {
+//todo check access to docs page
+Route::prefix('v1')->middleware(['set_api_log', 'can:access for developers API'])->group(function () {
     Route::prefix('token')->name('token.')->group(function () {
         Route::post('request', [AuthorizationController::class, 'requestToken'])->name('request');
     });
