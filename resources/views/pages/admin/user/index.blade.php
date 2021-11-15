@@ -34,6 +34,7 @@
                                 <th class="px-4 py-3">Створений</th>
                                 <th class="px-4 py-3">Оновлений</th>
                                 <th class="px-4 py-3">Очистити дані авторизації</th>
+                                <th class="px-4 py-3">Редагувати</th>
                                 <th class="px-4 py-3">Видалити користувача</th>
                             </tr>
                         </thead>
@@ -90,6 +91,15 @@
                                                 <span class="mx-1">Очистити</span>
                                             </button>
                                         </form>
+                                    </td>
+                                    <td class="px-4 py-3 text-sm border">
+                                        <a href="{{ route('admin.users.edit', ['user' => $user]) }}" class="flex items-center px-2 py-2 font-medium tracking-wide
+                                            text-black transition-colors duration-200 transform bg-yellow-400 rounded-md hover:bg-yellow-500 focus:outline-none focus:ring focus:ring-yellow-200 focus:ring-opacity-80">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                            </svg>
+                                            <span class="mx-1">Редагувати</span>
+                                        </a>
                                     </td>
                                     <td class="px-4 py-3 text-sm border">
                                         <form method="POST" action="{{ route('admin.users.destroy', ['user' => $user]) }}">

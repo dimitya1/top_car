@@ -33,6 +33,17 @@ class UserService
         return $this->model->create($data);
     }
 
+    public function update(User $user, array $data): User
+    {
+        if (isset($data['new_password']) && !is_null($data['new_password'])) {
+            $data['password'] = Hash::make($data['new_password']);
+        }
+
+        $user->update($data);
+
+        return $user->fresh();
+    }
+
     public function getAllForAdminTable(): LengthAwarePaginator
     {
         return $this->model->newQuery()->get()->filter(function (User $user) {

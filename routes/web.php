@@ -49,6 +49,8 @@ Route::prefix('admin')->middleware(['set_admin_panel_log', CheckIsAdmin::class])
     });
     Route::name('users.')->prefix('users')->group(function () {
         Route::get('', [UserController::class, 'adminIndex'])->name('index');
+        Route::get('{user}', [UserController::class, 'edit'])->name('edit');
+        Route::post('{user}', [UserController::class, 'update'])->name('update');
         Route::post('/{user}/clear-authorisation', [UserController::class, 'clearAuthorisation'])->name('clear-authorisation');;
         Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');;
     });
