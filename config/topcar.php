@@ -1,6 +1,14 @@
 <?php
 
 return [
+    'locale_ru' => 'ru',
+    'locale_en' => 'en',
+    'locale_uk' => 'uk',
+    'locales' => [
+        'ru',
+        'en',
+        'uk',
+    ],
     'contacts' => [
         'uk' => [
             'city' => 'Одеса',

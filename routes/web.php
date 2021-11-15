@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthorizationController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\Admin\FeedbackController as AdminFeedbackController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\CheckIsAdmin;
@@ -22,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('language/{language}', [LanguageController::class, 'switch'])->name('language.switch');
 
 Route::middleware(['set_website_log'])->group(function () {
     Route::get('', [HomeController::class, 'index'])->name('home');

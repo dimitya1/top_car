@@ -7,9 +7,9 @@
     <div class="header-content">
         <div class="inform">
             <div class="lang-container">
-                <a href="./" class="lang @if(app()->getLocale() === 'uk') lang-active @endif">@lang('app.layout.header.languages_list.uk')</a>
-                <a href="./" class="lang @if(app()->getLocale() === 'ru') lang-active @endif">@lang('app.layout.header.languages_list.ru')</a>
-                <a href="./" class="lang @if(app()->getLocale() === 'en') lang-active @endif">@lang('app.layout.header.languages_list.en')</a>
+                <a href="{{ route('language.switch', config('topcar.locale_uk', 'uk')) }}" class="lang @if(app()->getLocale() === config('topcar.locale_uk', 'uk')) lang-active @endif">@lang('app.layout.header.languages_list.uk')</a>
+                <a href="{{ route('language.switch', config('topcar.locale_ru', 'ru')) }}" class="lang @if(app()->getLocale() === config('topcar.locale_ru', 'ru')) lang-active @endif">@lang('app.layout.header.languages_list.ru')</a>
+                <a href="{{ route('language.switch', config('topcar.locale_en', 'en')) }}" class="lang @if(app()->getLocale() === config('topcar.locale_en', 'en')) lang-active @endif">@lang('app.layout.header.languages_list.en')</a>
             </div>
             <address class="address">@lang('app.contacts.city')@lang('app.contacts.street')</address>
             <a href="tel:@lang('app.contacts.tel')" class="tel">@lang('app.contacts.tel')</a>
