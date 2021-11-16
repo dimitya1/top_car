@@ -26,17 +26,17 @@
                     <table class="w-full">
                         <thead>
                             <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
-                                <th class="px-4 py-3">Ім'я</th>
-                                <th class="px-4 py-3">Email</th>
-                                <th class="px-4 py-3">Показувати email</th>
-                                <th class="px-4 py-3">Телефонний номер</th>
-                                <th class="px-4 py-3">Показувати телефонний номер</th>
-                                <th class="px-4 py-3">Має доступ до API</th>
-                                <th class="px-4 py-3">Створений</th>
-                                <th class="px-4 py-3">Оновлений</th>
-                                <th class="px-4 py-3">Редагувати</th>
-                                <th class="px-4 py-3">Видалити користувача</th>
-                                <th class="px-4 py-3">Очистити дані авторизації</th>
+                                <th class="px-4 py-3">@lang('app.admin.user.name')</th>
+                                <th class="px-4 py-3">@lang('app.admin.user.email')</th>
+                                <th class="px-4 py-3">@lang('app.admin.user.show_email')</th>
+                                <th class="px-4 py-3">@lang('app.admin.user.phone_number')</th>
+                                <th class="px-4 py-3">@lang('app.admin.user.show_phone_number')</th>
+                                <th class="px-4 py-3">@lang('app.admin.user.can_access_api')</th>
+                                <th class="px-4 py-3">@lang('app.admin.user.created')</th>
+                                <th class="px-4 py-3">@lang('app.admin.user.updated')</th>
+                                <th class="px-4 py-3">@lang('app.admin.user.edit')</th>
+                                <th class="px-4 py-3">@lang('app.admin.user.delete')</th>
+                                <th class="px-4 py-3">@lang('app.admin.user.clear_authorisation')</th>
                             </tr>
                         </thead>
                         <tbody class="bg-white">
@@ -57,7 +57,7 @@
                                             </div>
                                             <div>
                                                 <p class="font-semibold text-black">{{ $user->name }}</p>
-                                                <p class="text-xs text-gray-600">Користувач</p>
+                                                <p class="text-xs text-gray-600">@lang('app.admin.user.title')</p>
                                             </div>
                                         </div>
                                     </td>
@@ -93,7 +93,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                             </svg>
-                                            <span class="mx-1">Редагувати</span>
+                                            <span class="mx-1">@lang('app.actions.edit')</span>
                                         </a>
                                     </td>
                                     <td class="px-4 py-3 text-sm border">
@@ -105,7 +105,7 @@
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                                 </svg>
-                                                <span class="mx-1">Видалити</span>
+                                                <span class="mx-1">@lang('app.actions.delete')</span>
                                             </button>
                                         </form>
                                     </td>
@@ -117,7 +117,7 @@
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
                                                 </svg>
-                                                <span class="mx-1">Очистити</span>
+                                                <span class="mx-1">@lang('app.actions.clear')</span>
                                             </button>
                                         </form>
                                     </td>

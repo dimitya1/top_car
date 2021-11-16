@@ -24,8 +24,8 @@
                     <input type="text" name="creator_name" class="name" placeholder="@lang('app.contacts.contact_form.name')" @auth value="{{ auth()->user()->name }}" @endauth>
                     <textarea type="text" name="message" class="message" placeholder="@lang('app.contacts.contact_form.message')"></textarea>
                     <p class="form-text">@lang('app.contacts.contact_form.help')</p>
-                    <input type="tel" name="creator_phone_number" class="form-phone" placeholder="@lang('app.contacts.contact_form.phone_number')">
-                    <input type="email" name="creator_email" class="form-email" placeholder="@lang('app.contacts.contact_form.email')">
+                    <input type="tel" name="creator_phone_number" class="form-phone" placeholder="@lang('app.contacts.contact_form.phone_number')" @auth value="{{ auth()->user()->phone_number }}" @endauth>
+                    <input type="email" name="creator_email" class="form-email" placeholder="@lang('app.contacts.contact_form.email')" @auth value="{{ auth()->user()->email }}" @endauth>
                     <div class="btn-center">
                         <input type="submit" value="@lang('app.contacts.contact_form.send_request')" class="btn">
                     </div>

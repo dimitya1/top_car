@@ -39,6 +39,9 @@
                 <p class="text">
                     @lang('app.about.advertisement')
                 </p>
+                <p class="text">
+                    @lang('app.about.for_developers')
+                </p>
             </div>
         </div>
     </section>

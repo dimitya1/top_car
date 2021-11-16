@@ -14,12 +14,12 @@
                     <table class="w-full">
                         <thead>
                         <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
-                            <th class="px-4 py-3">type</th>
-                            <th class="px-4 py-3">action</th>
-                            <th class="px-4 py-3">causer</th>
-                            <th class="px-4 py-3">properties</th>
-                            <th class="px-4 py-3">subject</th>
-                            <th class="px-4 py-3">date</th>
+                            <th class="px-4 py-3">@lang('app.admin.activity_log.section')</th>
+                            <th class="px-4 py-3">@lang('app.admin.activity_log.action')</th>
+                            <th class="px-4 py-3">@lang('app.admin.activity_log.causer')</th>
+                            <th class="px-4 py-3">@lang('app.admin.activity_log.properties')</th>
+                            <th class="px-4 py-3">@lang('app.admin.activity_log.subject')</th>
+                            <th class="px-4 py-3">@lang('app.admin.activity_log.date')</th>
                         </tr>
                         </thead>
                         <tbody class="bg-white">
@@ -33,7 +33,37 @@
                                         {{ $row['action'] }}
                                     </td>
                                     <td class="px-4 py-3 text-ms border">
-                                        {{ $row['causer'] }}
+                                        @if($row['causer'])
+                                            @php
+                                                $causer = $row['causer'];
+                                            @endphp
+                                            <div class="flex items-center text-sm">
+                                                <div class="relative w-12 h-12 mr-3 rounded-full md:block">
+                                                    @if($causer->avatar)
+                                                        <img class="object-cover w-full h-full rounded-full"
+                                                             src="{{ url("storage/$causer->avatar") }}" alt="{{ $causer->name }}" loading="lazy" />
+                                                        <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                                                    @else
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                        </svg>
+                                                    @endif
+                                                </div>
+
+                                                <div>
+                                                    <p class="font-semibold text-black">{{ $causer->name }}</p>
+                                                    <p class="text-xs text-gray-600">
+                                                        @if($row['causer_type'] === \App\Services\ActivityLogService::CAUSER_ADMIN)
+                                                            @lang('app.admin.administrator.title')
+                                                        @elseif($row['causer_type'] === \App\Services\ActivityLogService::CAUSER_USER)
+                                                            @lang('app.admin.user.title')
+                                                        @endif
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        @else
+                                            @lang('app.admin.activity_log.created_non_auth')
+                                        @endif
                                     </td>
                                     <td class="px-4 py-3 text-ms border">
                                         @include('pages.activity_log.changes_popover')

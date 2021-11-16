@@ -96,12 +96,12 @@
         </div>
         @if(auth()->user() && auth()->user()->hasRole(\App\Models\Role::ROLE_ADMIN))
             <div class="menu">
-                <a href="{{ route('admin.users.index') }}" class="link">@lang('app.admin.user.index')</a>
-                <a href="{{ route('admin.reviews.index') }}" class="link">@lang('app.admin.review.index')</a>
+                <a href="{{ route('admin.users.index') }}" class="link">@lang('app.layout.header.menu_list.admin.users')</a>
+                <a href="{{ route('admin.reviews.index') }}" class="link">@lang('app.layout.header.menu_list.admin.reviews')</a>
                 {{--                <a href="#" class="link">@lang('app.admin.car_model.index')</a>--}}
-                <a href="{{ route('admin.administrators.index') }}" class="link">@lang('app.admin.administrator.index')</a>
-                <a href="{{ route('admin.feedback.index') }}" class="link">Фідбек</a>
-                <a href="{{ route('admin.activity_log.index') }}" class="link">Актівіту лог</a>
+                <a href="{{ route('admin.administrators.index') }}" class="link">@lang('app.layout.header.menu_list.admin.admins')</a>
+                <a href="{{ route('admin.feedback.index') }}" class="link">@lang('app.layout.header.menu_list.admin.feedback')</a>
+                <a href="{{ route('admin.activity_log.index') }}" class="link">@lang('app.layout.header.menu_list.admin.activity_logs')</a>
             </div>
         @endif
         @foreach($errors->all() as $error)

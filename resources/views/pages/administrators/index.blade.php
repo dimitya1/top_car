@@ -26,7 +26,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
                     </svg>
-                    Створити
+                    @lang('app.actions.create')
                 </a>
             </div>
 
@@ -35,15 +35,15 @@
                     <table class="w-full">
                         <thead>
                             <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
-                                <th class="px-4 py-3">Ім'я</th>
-                                <th class="px-4 py-3">Email</th>
-                                <th class="px-4 py-3">Показувати email</th>
-                                <th class="px-4 py-3">Телефонний номер</th>
-                                <th class="px-4 py-3">Показувати телефонний номер</th>
-                                <th class="px-4 py-3">Створений</th>
-                                <th class="px-4 py-3">Оновлений</th>
-                                <th class="px-4 py-3">Редагувати адміна</th>
-                                <th class="px-4 py-3">Видалити адміна</th>
+                                <th class="px-4 py-3">@lang('app.admin.administrator.name')</th>
+                                <th class="px-4 py-3">@lang('app.admin.administrator.email')</th>
+                                <th class="px-4 py-3">@lang('app.admin.administrator.phone_number')</th>
+                                <th class="px-4 py-3">@lang('app.admin.administrator.show_email')</th>
+                                <th class="px-4 py-3">@lang('app.admin.administrator.show_phone_number')</th>
+                                <th class="px-4 py-3">@lang('app.admin.administrator.created')</th>
+                                <th class="px-4 py-3">@lang('app.admin.administrator.updated')</th>
+                                <th class="px-4 py-3">@lang('app.admin.administrator.edit')</th>
+                                <th class="px-4 py-3">@lang('app.admin.administrator.delete')</th>
                             </tr>
                         </thead>
                         <tbody class="bg-white">
@@ -65,7 +65,7 @@
 
                                             <div>
                                                 <p class="font-semibold text-black">{{ $admin->name }}</p>
-                                                <p class="text-xs text-gray-600">Адміністратор</p>
+                                                <p class="text-xs text-gray-600">@lang('app.admin.administrator.title')</p>
                                             </div>
                                         </div>
                                     </td>

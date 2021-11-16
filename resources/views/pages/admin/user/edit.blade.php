@@ -13,16 +13,16 @@
                 @method('PUT')
                 @csrf
                 <div class="w-full">
-                    <label class="block mb-2 text-sm font-medium text-white">Ім'я</label>
+                    <label class="block mb-2 text-sm font-medium text-white">@lang('app.admin.user.name')</label>
                     <input name="name" required value="{{ $user->name }}" class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="text">
 
-                    <label class="block mb-2 text-sm font-medium text-white">Email</label>
+                    <label class="block mb-2 text-sm font-medium text-white">@lang('app.admin.user.email')</label>
                     <input name="email" required value="{{ $user->email }}" class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="email">
 
-                    <label class="block mb-2 text-sm font-medium text-white">Номер телефону</label>
+                    <label class="block mb-2 text-sm font-medium text-white">@lang('app.admin.user.phone_number')</label>
                     <input name="phone_number" required value="{{ $user->phone_number }}" class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="tel">
 
-                    <label class="block mb-2 text-sm font-medium text-white">Встановіть новий пароль за потребою</label>
+                    <label class="block mb-2 text-sm font-medium text-white">@lang('app.admin.user.new_password')</label>
                     <input name="new_password" class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="password">
 
                     @php
@@ -30,10 +30,10 @@
                     @endphp
                     <label class="inline-flex items-center font-medium mt-2 mb-2">
                         <input type="checkbox" class="form-checkbox" name="permission_access_api" @if($hasAccessToAPI) checked @endif/>
-                        <span class="ml-2">Має доступ до API</span>
+                        <span class="ml-2">@lang('app.admin.user.can_access_api')</span>
                     </label>
 
-                    <label class="block mb-2 text-sm font-medium text-white">Аватар</label>
+                    <label class="block mb-2 text-sm font-medium text-white">@lang('app.admin.user.avatar')</label>
                     <div class="grid grid-cols-3">
                         @if($user->avatar)
                             <div class="col-span-1 relative w-28 h-28 rounded-full md:block">
@@ -46,7 +46,7 @@
                             <div class="absolute">
                                 <div class="flex flex-col items-center">
                                     <i class="fa fa-folder-open fa-4x text-blue-700"></i>
-                                    <span class="block text-gray-400 font-normal" id="new_avatar_text">@if($user->avatar) Завантажте новий аватар, якщо необхідно @else Натисніть, щоб обрати файл @endif</span>
+                                    <span class="block text-gray-400 font-normal" id="new_avatar_text">@if($user->avatar) @lang('app.admin.user.new_avatar') @else @lang('app.admin.user.select_file') @endif</span>
                                 </div>
                             </div>
                             <input type="file" class="h-full w-full opacity-0" id="new_avatar" name="new_avatar" accept=".png, .jpg, .jpeg, .webp, .wbmp, .gif">
@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="flex justify-center mt-6">
-                    <button type="submit" class="px-4 py-2 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Зберегти на сайті</button>
+                    <button type="submit" class="px-4 py-2 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">@lang('app.admin.user.save')</button>
                 </div>
             </form>
         </div>
@@ -69,7 +69,7 @@
             if(value) {
                 $('#new_avatar_text').html(value.split('\\').pop());
             } else {
-                $('#new_avatar_text').html(@if($user->avatar) "Завантажте новий аватар, якщо необхідно" @else "Натисніть, щоб обрати файл" @endif);
+                $('#new_avatar_text').html(@if($user->avatar) '@lang('app.admin.user.new_avatar')' @else '@lang('app.admin.user.select_file')' @endif);
             }
         })
     </script>

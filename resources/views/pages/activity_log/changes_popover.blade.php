@@ -2,7 +2,7 @@
     px-6 py-3 rounded shadow hover:shadow-lg outline-none
     focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
     onclick="openPopover(event,'popover_{{ $loop->iteration }}')">
-        View changes
+        @lang('app.admin.activity_log.view_changes')
 </button>
 <div id="popover_{{ $loop->iteration }}" class="popover hidden bg-white border mr-3 block z-50 font-normal leading-normal text-sm
     max-w-xs text-left no-underline break-words rounded-lg">

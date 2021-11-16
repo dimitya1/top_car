@@ -12,24 +12,24 @@
             <form method="POST" action="{{ route('admin.administrators.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="w-full">
-                    <label class="block mb-2 text-sm font-medium text-white">Ім'я</label>
+                    <label class="block mb-2 text-sm font-medium text-white">@lang('app.admin.administrator.name')</label>
                     <input name="name" required class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="text">
 
-                    <label class="block mb-2 text-sm font-medium text-white">Email</label>
+                    <label class="block mb-2 text-sm font-medium text-white">@lang('app.admin.administrator.email')</label>
                     <input name="email" required class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="email">
 
-                    <label class="block mb-2 text-sm font-medium text-white">Номер телефону</label>
+                    <label class="block mb-2 text-sm font-medium text-white">@lang('app.admin.administrator.phone_number')</label>
                     <input name="phone_number" required class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="tel">
 
-                    <label class="block mb-2 text-sm font-medium text-white">Пароль</label>
+                    <label class="block mb-2 text-sm font-medium text-white">@lang('app.admin.administrator.password')</label>
                     <input name="password" required class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="password">
 
-                    <label class="block mb-2 text-sm font-medium text-white">Аватар</label>
+                    <label class="block mb-2 text-sm font-medium text-white">@lang('app.admin.administrator.avatar')</label>
                     <div class="border-dotted h-28 rounded-lg border-dashed border-2 border-blue-700 bg-gray-100 flex justify-center items-center">
                         <div class="absolute">
                             <div class="flex flex-col items-center">
                                 <i class="fa fa-folder-open fa-4x text-blue-700"></i>
-                                <span class="block text-gray-400 font-normal" id="avatar_text">Натисніть, щоб обрати файл</span>
+                                <span class="block text-gray-400 font-normal" id="avatar_text">@lang('app.admin.administrator.select_file')</span>
                             </div>
                         </div>
                         <input type="file" class="h-full w-full opacity-0" id="avatar" name="avatar" accept=".png, .jpg, .jpeg, .webp, .wbmp, .gif">
@@ -51,7 +51,7 @@
             if(value) {
                 $('#avatar_text').html(value.split('\\').pop());
             } else {
-                $('#avatar_text').html('Натисніть, щоб обрати файл');
+                $('#avatar_text').html('@lang('app.admin.administrator.select_file')');
             }
         })
     </script>

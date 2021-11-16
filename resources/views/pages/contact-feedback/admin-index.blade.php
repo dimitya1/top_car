@@ -49,7 +49,7 @@
                                                 </div>
                                                 <div>
                                                     <p class="font-semibold text-black">{{ $item->user->name }}</p>
-                                                    <p class="text-xs text-gray-600">Користувач</p>
+                                                    <p class="text-xs text-gray-600">@lang('app.admin.user.title')</p>
                                                 </div>
                                             </div>
                                         @else

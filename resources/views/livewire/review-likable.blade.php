@@ -1,4 +1,4 @@
-<div  style= "align-items: center">
+<div style="align-items: center">
     <button wire:click="like" @if($userHasLike || !auth()->user()) disabled @endif>
         <span class="@if($userHasLike) text-green-500 @else text-gray-400 @endif mr-1 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">

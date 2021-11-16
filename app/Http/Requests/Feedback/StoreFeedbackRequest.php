@@ -15,8 +15,8 @@ class StoreFeedbackRequest extends FormRequest
     {
         return [
             'creator_name'         => ['required', 'string', 'max:60'],
-            'creator_email'        => ['required_unless:creator_phone_number,null', 'string', 'min:9', 'max:120', 'email'],
-            'creator_phone_number' => ['required_unless:creator_email,null', 'string', 'min:10', 'max:15'],
+            'creator_email'        => ['required_if:creator_phone_number,null', 'string', 'min:9', 'max:120', 'email'],
+            'creator_phone_number' => ['required_if:creator_email,null', 'string', 'min:10', 'max:15'],
             'message'              => ['required', 'string', 'min:5', 'max:500'],
         ];
     }

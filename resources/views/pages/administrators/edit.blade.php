@@ -13,19 +13,19 @@
                 @method('PUT')
                 @csrf
                 <div class="w-full">
-                    <label class="block mb-2 text-sm font-medium text-white">Ім'я</label>
+                    <label class="block mb-2 text-sm font-medium text-white">@lang('app.admin.administrator.name')</label>
                     <input name="name" required value="{{ $admin->name }}" class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="text">
 
-                    <label class="block mb-2 text-sm font-medium text-white">Email</label>
+                    <label class="block mb-2 text-sm font-medium text-white">@lang('app.admin.administrator.email')</label>
                     <input name="email" required value="{{ $admin->email }}" class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="email">
 
-                    <label class="block mb-2 text-sm font-medium text-white">Номер телефону</label>
+                    <label class="block mb-2 text-sm font-medium text-white">@lang('app.admin.administrator.phone_number')</label>
                     <input name="phone_number" required value="{{ $admin->phone_number }}" class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="tel">
 
-                    <label class="block mb-2 text-sm font-medium text-white">Встановіть новий пароль за потребою</label>
+                    <label class="block mb-2 text-sm font-medium text-white">@lang('app.admin.administrator.new_password')</label>
                     <input name="new_password" class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="password">
 
-                    <label class="block mb-2 text-sm font-medium text-white">Аватар</label>
+                    <label class="block mb-2 text-sm font-medium text-white">@lang('app.admin.administrator.avatar')</label>
                     <div class="grid grid-cols-3">
                         @if($admin->avatar)
                             <div class="col-span-1 relative w-28 h-28 rounded-full md:block">
@@ -61,7 +61,7 @@
             if(value) {
                 $('#new_avatar_text').html(value.split('\\').pop());
             } else {
-                $('#new_avatar_text').html(@if($admin->avatar) "Завантажте новий аватар, якщо необхідно" @else "Натисніть, щоб обрати файл" @endif);
+                $('#new_avatar_text').html(@if($admin->avatar) '@lang('app.admin.administrator.new_avatar')' @else '@lang('app.admin.administrator.select_file')' @endif);
             }
         })
     </script>

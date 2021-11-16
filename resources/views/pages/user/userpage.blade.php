@@ -19,13 +19,13 @@
                             <a href="{{ route('reviews.index', ['own' => true]) }}" class="list" id="reviews">@lang('app.userpage.u_can_list.see_own_reviews')</a>
                         </li>
                         <li>
-                            <a href="" class="list" id="new-review">@lang('app.userpage.u_can_list.create_own_review')</a>
+                            <a href="{{ route('reviews.create') }}" class="list" id="new-review">@lang('app.userpage.u_can_list.create_own_review')</a>
                         </li>
+{{--                        <li>--}}
+{{--                            <a href="" class="list" id="update">@lang('app.userpage.u_can_list.edit_personal_data')</a>--}}
+{{--                        </li>--}}
                         <li>
-                            <a href="" class="list" id="update">@lang('app.userpage.u_can_list.edit_personal_data')</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('contacts') }}" class="list" id="reclam">@lang('app.userpage.u_can_list.offer_coop')</a>
+                            <a href="{{ route('contact_us.index') }}" class="list" id="reclam">@lang('app.userpage.u_can_list.offer_coop')</a>
                         </li>
                     </ul>
                     <!-- user update -->

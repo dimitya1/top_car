@@ -10,24 +10,24 @@
         <div class="wrapper">
             @include('layouts.header')
             <div class="landing-content" id="content">
-                <h1 class="title"><bold>@lang('app.topcar')</bold> - найкращий сервіс відгуків про автомобілі</h1>
+                <h1 class="title"><bold>@lang('app.topcar')</bold>@lang('app.home.best_reviews_service')</h1>
             </div>
         </div>
     </section>
     <section class="about" id="about-us">
         <div class="about-wrapper">
             <div class="heading-about">
-                <a href="{{ route('about') }}" class="about-link">про нас</a>
-                <h2 class="about-title">TopCar - сервіс відгуків про автомобілі</h2>
+                <a href="{{ route('about') }}" class="about-link">@lang('app.layout.header.menu_list.about_us')</a>
+                <h2 class="about-title">@lang('app.home.reviews_service')</h2>
             </div>
             <div class="about-content">
-                <h3 class="about-content-title">Ми пропонуємо нашим  користувачам:</h3>
+                <h3 class="about-content-title">@lang('app.home.we_offer')</h3>
                 <ul class="about-text">
-                    <li class="text point">портфоліо різноманих автомобілів</li>
-                    <li class="text point">сотні відгуків про різні моделі</li>
-                    <li class="text point">можливість відфільтрувати пошук певного автомобіля</li>
-                    <li class="text point">переглянути рекомендовані марки та моделі</li>
-                    <li class="text point">створити  власний обліковий запис</li>
+                    <li class="text point">@lang('app.home.portfolio')</li>
+                    <li class="text point">@lang('app.home.hundreds_of_reviews')</li>
+                    <li class="text point">@lang('app.home.ability_to_filter')</li>
+                    <li class="text point">@lang('app.home.view_recommended')</li>
+                    <li class="text point">@lang('app.home.create_account')</li>
                 </ul>
             </div>
         </div>

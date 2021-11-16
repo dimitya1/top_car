@@ -3,10 +3,20 @@
 namespace App\Services;
 
 use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Role;
 use Illuminate\Support\Facades\DB;
 
 class ActivityLogService
 {
+    public const CAUSER_ADMIN = 'admin';
+    public const CAUSER_USER = 'user';
+    
+    public static array $causers = [
+        self::CAUSER_ADMIN,
+        self::CAUSER_USER,
+    ];
+    
     public const TYPE_WEBSITE = 'website';
     public const TYPE_API = 'api';
     public const TYPE_ADMIN_PANEL = 'admin_panel';
@@ -41,8 +51,19 @@ class ActivityLogService
             $row['action']     = $record->event;
             $row['causer']     = $record->causer_type;
             $row['properties'] = json_decode($record->properties, true);
-            $row['subject']    = $record->subject_type . $record->subject_id;
+            $row['subject']    = $record->subject_type . ' ' . $record->subject_id;
             $row['date']       = Carbon::parse($record->created_at);
+            
+            $causer = User::find($record->causer_id);
+            $row['causer'] = $causer;
+            $row['causer_type'] = null;
+            if ($causer instanceof User) {
+                $row['causer_type'] = self::CAUSER_USER;
+                if ($causer->hasRole(Role::ROLE_ADMIN)) {
+                    $row['causer_type'] = self::CAUSER_ADMIN;
+                }
+            }
+            
             $row['backgroundColor'] = match ($row['action']) {
                 self::ACTION_CREATED => 'green',
                 self::ACTION_UPDATED => 'yellow',
@@ -55,7 +76,7 @@ class ActivityLogService
                 self::TYPE_ADMIN_PANEL => 'red',
                 default                => 'gray',
             };
-
+            
             $table[] = $row;
         };
 

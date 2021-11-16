@@ -24,7 +24,7 @@
                 </div>
                 <div>
                     <p class="font-semibold text-black">{{ $feedback->administrator->name }}</p>
-                    <p class="text-xs text-gray-600">Адміністратор</p>
+                    <p class="text-xs text-gray-600">@lang('app.admin.feedback.administrator')</p>
                 </div>
             </div>
         </a>
