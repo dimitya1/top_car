@@ -36,8 +36,8 @@ class TelegramService
     {
         $message = '';
         if (auth()->user()) {
-            //todo change route
-            $userRoute = route('admin.users.index');
+            //Telegram does not display localhost links
+            $userRoute = route('admin.users.edit', ['user' => auth()->user()]);
             $message .= '<a href="'.$userRoute.'">Авторизированный пользователь</a> только что оставил обратную связь через форму на сайте.' . PHP_EOL;
         } else {
             $message .= 'Неавторизированный пользователь только что оставил обратную связь через форму на сайте.' . PHP_EOL;

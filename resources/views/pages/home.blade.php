@@ -28,6 +28,7 @@
                     <li class="text point">@lang('app.home.ability_to_filter')</li>
                     <li class="text point">@lang('app.home.view_recommended')</li>
                     <li class="text point">@lang('app.home.create_account')</li>
+                    <li class="text point">@lang('app.home.integrate_api')</li>
                 </ul>
             </div>
         </div>
