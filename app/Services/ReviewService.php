@@ -4,8 +4,11 @@ namespace App\Services;
 
 use App\Models\Review;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ReviewService
 {
@@ -47,6 +50,25 @@ class ReviewService
     {
         if (auth()->user()) {
             $data['user_id'] = auth()->id();
+        }
+        if (isset($data['gallery']) && !empty($data['gallery'])) {
+            $gallery = [];
+            foreach ($data['gallery'] as $file) {
+                $date   = now()->format('Y-m-d_H-i-s');
+                $ext    = $file->getClientOriginalExtension();
+
+                $fileName = 'gallery'
+                    . '_' . Str::slug($data['title'])
+                    . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME))
+                    . '_' . $date
+                    . '.' . $ext;
+                $fullPath = "uploads/review_images/$fileName";
+
+                Storage::putFileAs("public/uploads/review_images", $file, $fileName);
+
+                $gallery[] = $fullPath;
+            }
+            $data['gallery'] = $gallery;
         }
 
         return $this->model->create($data);
