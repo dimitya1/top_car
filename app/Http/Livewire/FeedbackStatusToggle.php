@@ -5,9 +5,12 @@ namespace App\Http\Livewire;
 use App\Models\Feedback;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
+use Usernotnull\Toast\Concerns\WireToast;
 
 class FeedbackStatusToggle extends Component
 {
+    use WireToast;
+    
     const BG_GREEN = 'bg-green-400';
     const BG_GRAY = 'bg-gray-400';
     const TRANSLATE_GREEN = 'translate-x-full border-green-400';
@@ -50,8 +53,7 @@ class FeedbackStatusToggle extends Component
         $this->feedback->save();
         //freshing to update relations
         $this->feedback = $this->feedback->fresh();
-
-        //todo session flash
-        session()->flash('successful_status_change', 'successful_status_change');
+    
+        toast()->success('Status successfully changed')->push();
     }
 }
