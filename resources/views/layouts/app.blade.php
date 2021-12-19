@@ -43,6 +43,7 @@
 
 @livewireScripts
 
+<!-- validation errors -->
 <script>
     document.addEventListener("alpine:initialized", function () {
         @foreach($errors->all() as $error)

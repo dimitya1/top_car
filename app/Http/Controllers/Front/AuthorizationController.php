@@ -21,17 +21,18 @@ class AuthorizationController extends Controller
             $remember = true;
         }
 
-        if (auth()->attempt(
-            ['email' => $request->email, 'password' => $request->password],
-            $remember)) {
-            return redirect()
-                ->route('home')
-                ->with('successful_registration', __('app.authorization.successful_login'));
+        if (auth()->attempt(['email' => $request->email, 'password' => $request->password], $remember)) {
+            if (\auth()->user()->hasRole(Role::ROLE_ADMIN)) {
+                toast()->info('Welcome to admin panel')->push();
+            }
+            toast()->success(__('app.authorization.successful_login'))->push();
+            
+            return redirect()->route('home');
         }
 
-        return back()->withErrors(
-            ['email' => __('auth.failed')]
-        );
+        toast()->danger(__('auth.failed'))->push();
+        
+        return back();
     }
 
 
@@ -47,13 +48,17 @@ class AuthorizationController extends Controller
 
         auth()->login($user, $remember);
 
-        return redirect()->route('home')->with('successful_login', __('app.authorization.successful_registration'));
+        toast()->success(__('app.authorization.successful_registration'))->push();
+        
+        return redirect()->route('home');
     }
 
     public function logout(): RedirectResponse
     {
         auth()->logout();
-
-        return back()->with('successful_logout', __('app.authorization.successful_logout'));
+    
+        toast()->success(__('app.authorization.successful_logout'))->push();
+        
+        return back();
     }
 }

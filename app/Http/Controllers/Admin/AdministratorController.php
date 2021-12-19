@@ -46,7 +46,9 @@ class AdministratorController extends Controller
     {
         $administratorService->store($request->all());
 
-        return redirect()->route('admin.administrators.index')->with('successful_store', 'Новий запис успішно створено');
+        toast()->success('Новий запис успішно створено')->push();
+        
+        return redirect()->route('admin.administrators.index');
     }
 
     /**
@@ -83,7 +85,9 @@ class AdministratorController extends Controller
     {
         $administratorService->update($administrator, $request->all());
 
-        return redirect()->route('admin.administrators.index')->with('successful_update', 'Дані успішно оновлено');
+        toast()->success('Дані успішно оновлено')->push();
+        
+        return redirect()->route('admin.administrators.index');
     }
 
     /**
@@ -96,7 +100,9 @@ class AdministratorController extends Controller
     public function destroy(User $administrator, AdministratorService $administratorService): RedirectResponse
     {
         $administratorService->destroy($administrator);
-
-        return redirect()->route('admin.administrators.index')->with('successful_destroy', 'Запис усішно видалено');
+    
+        toast()->success('Запис усішно видалено')->push();
+        
+        return redirect()->route('admin.administrators.index');
     }
 }

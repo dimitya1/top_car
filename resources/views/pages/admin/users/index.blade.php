@@ -9,18 +9,6 @@
     <section class="text-white body-font overflow-hidden bg-gradient-to-r from-green-600 via-blue-500 to-indigo-700">
         @include('layouts.header')
         <div class="px-10">
-
-            <div class="flex justify-between">
-                <div>
-                    @if (session('successful_authorisation_delete'))
-                        <x-alert type="success" :message="session('successful_authorisation_delete')"/>
-                    @endif
-                    @if (session('successful_destroy'))
-                        <x-alert type="success" :message="session('successful_destroy')"/>
-                    @endif
-                </div>
-            </div>
-
             <div class="mt-5 mb-5 overflow-hidden rounded-lg shadow-lg">
                 <div class="overflow-x-auto">
                     <table class="w-full">

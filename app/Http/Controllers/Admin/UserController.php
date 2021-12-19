@@ -28,8 +28,9 @@ class UserController extends Controller
     {
         $userService->clearSessionsAndTokens($user);
 
-        return redirect()->route('admin.users.index')
-            ->with('successful_authorisation_delete', 'Дані для авторизації успішно видалено');
+        toast()->info('Дані для авторизації успішно видалено')->push();
+        
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -59,7 +60,9 @@ class UserController extends Controller
     {
         $userService->update($user, $request->all());
 
-        return redirect()->route('admin.users.index')->with('successful_update', 'Дані успішно оновлено');
+        toast()->success('Дані користувача успішно оновлено')->push();
+        
+        return redirect()->route('admin.users.index');
     }
 
 
@@ -73,7 +76,9 @@ class UserController extends Controller
     public function destroy(User $user, UserService $userService): RedirectResponse
     {
         $userService->destroy($user);
-
-        return redirect()->route('admin.users.index')->with('successful_destroy', 'Запис усішно видалено');
+    
+        toast()->success( 'Його відгуки помічені як "створені анонімно"', 'Користувача успішно видалено')->push();
+        
+        return redirect()->route('admin.users.index');
     }
 }
