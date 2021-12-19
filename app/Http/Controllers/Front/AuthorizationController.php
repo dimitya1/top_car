@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Front;
 
-use App\Http\Requests\Authorization\LoginRequest;
-use App\Http\Requests\Authorization\RegisterRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Front\Authorization\LoginRequest;
+use App\Http\Requests\Front\Authorization\RegisterRequest;
 use App\Models\Role;
 use App\Models\User;
 use App\Services\UserService;

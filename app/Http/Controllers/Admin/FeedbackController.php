@@ -12,6 +12,6 @@ class FeedbackController extends Controller
     {
         $feedback = $feedbackService->getAllForAdminTable();
 
-        return view('pages.contact-feedback.admin-index', ['feedback' => $feedback]);
+        return view('pages.admin.feedback.index', ['feedback' => $feedback]);
     }
 }

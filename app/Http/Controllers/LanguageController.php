@@ -2,17 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Language;
 use Illuminate\Http\RedirectResponse;
-
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
-/**
- * Class LanguageController
- * @package App\Http\Controllers
- */
-class LanguageController
+class LanguageController extends Controller
 {
     /**
      * @param string $language

@@ -12,6 +12,6 @@ class ActivityLogController extends Controller
     {
         $table = $activityLogsService->getAllForAdminTable();
 
-        return view('pages.activity_log.index', ['table' => $table]);
+        return view('pages.admin.activity_log.index', ['table' => $table]);
     }
 }

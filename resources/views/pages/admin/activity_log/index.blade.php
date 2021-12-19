@@ -35,7 +35,7 @@
                                     <td class="px-4 py-3 text-ms border">
                                         @if($row['causer'])
                                             @php
-                                                $causer = $row['causer'];
+                                                $causer = $row['causer']
                                             @endphp
                                             <div class="flex items-center text-sm">
                                                 <div class="relative w-12 h-12 mr-3 rounded-full md:block">
@@ -66,7 +66,7 @@
                                         @endif
                                     </td>
                                     <td class="px-4 py-3 text-ms border">
-                                        @include('pages.activity_log.changes_popover')
+                                        @include('pages.admin.activity_log.changes_popover')
                                     </td>
                                     <td class="px-4 py-3 text-ms border">
                                         {{ $row['subject'] }}
@@ -99,7 +99,7 @@
             while (element.nodeName !== "BUTTON") {
                 element = element.parentNode;
             }
-            let popper = Popper.createPopper(
+            Popper.createPopper(
                 element,
                 document.getElementById(popoverID),
                 {

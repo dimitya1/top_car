@@ -40,7 +40,8 @@ class UserService
 
     public function update(User $user, array $data): User
     {
-        if (isset($data['new_password']) && !is_null($data['new_password'])) {
+        
+        if (isset($data['new_password']) && !is_null($data['new_password']))   {
             //todo clear tokens maybe
             $data['password'] = Hash::make($data['new_password']);
         }

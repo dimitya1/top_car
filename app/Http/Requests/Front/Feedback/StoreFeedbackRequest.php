@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Feedback;
+namespace App\Http\Requests\Front\Feedback;
 
 use Illuminate\Foundation\Http\FormRequest;
 

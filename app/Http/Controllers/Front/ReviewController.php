@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Front;
 
-use App\Http\Requests\Review\StoreReviewRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Front\Review\StoreReviewRequest;
 use App\Models\Review;
 use App\Services\ReviewService;
 use Illuminate\Contracts\View\View;
@@ -30,7 +31,7 @@ class ReviewController extends Controller
         $reviews = $reviewService
             ->getAllPaginated($filterOwn, $request->car_brand_id, $request->car_model_id);
 
-        return view('pages.reviews.index', ['reviews' => $reviews]);
+        return view('pages.front.reviews.index', ['reviews' => $reviews]);
     }
 
     /**
@@ -40,7 +41,7 @@ class ReviewController extends Controller
      */
     public function create(): view
     {
-        return view('pages.reviews.create');
+        return view('pages.front.reviews.create');
     }
 
     /**
@@ -93,20 +94,5 @@ class ReviewController extends Controller
     public function update(Request $request, Review $review)
     {
         //
-    }
-
-    /**
-     * Remove the specified resource from storage by admin.
-     *
-     * @param  Review  $review
-     * @param  ReviewService  $reviewService
-     *
-     * @return RedirectResponse
-     */
-    public function destroy(Review $review, ReviewService $reviewService): RedirectResponse
-    {
-        $reviewService->destroy($review);
-
-        return redirect()->route('admin.reviews.index');
     }
 }

@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Review;
+namespace App\Http\Requests\Front\Review;
 
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreReviewRequest extends FormRequest
 {
+    //todo finish request!!!
     /**
      * Get the validation rules that apply to the request.
      *

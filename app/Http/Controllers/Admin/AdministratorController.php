@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Administrator\StoreAdministratorRequest;
@@ -22,7 +22,7 @@ class AdministratorController extends Controller
     {
         $administrators = $administratorService->getAllWithoutCurrent();
 
-        return view('pages.administrators.index', ['administrators' => $administrators]);
+        return view('pages.admin.administrators.index', ['administrators' => $administrators]);
     }
 
     /**
@@ -32,7 +32,7 @@ class AdministratorController extends Controller
      */
     public function create(): View
     {
-        return view('pages.administrators.create');
+        return view('pages.admin.administrators.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class AdministratorController extends Controller
     {
         $administratorService->store($request->all());
 
-        return redirect()->route('admin.administrators.index')->with('successful_store', 'Новий запис успішно створено');;
+        return redirect()->route('admin.administrators.index')->with('successful_store', 'Новий запис успішно створено');
     }
 
     /**
@@ -66,7 +66,7 @@ class AdministratorController extends Controller
      */
     public function edit(User $administrator): View
     {
-        return view('pages.administrators.edit', ['admin' => $administrator]);
+        return view('pages.admin.administrators.edit', ['admin' => $administrator]);
     }
 
     /**

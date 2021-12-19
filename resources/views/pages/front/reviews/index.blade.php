@@ -62,7 +62,7 @@
             @endif
 
             @if(request()->car_model_id)
-                @include('pages.reviews.car_model')
+                @include('pages.front.reviews.car_model_card')
             @endif
 
             @inject('ratingService', 'App\Services\RatingService')

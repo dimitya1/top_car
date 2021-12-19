@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Administrator\UpdateAdministratorRequest;
 use App\Http\Requests\Admin\User\UpdateUserRequest;
 use App\Http\Requests\Authorization\LoginRequest;
@@ -16,16 +17,11 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function index(): View
-    {
-        return view('pages.user.userpage');
-    }
-
-    public function adminIndex(UserService $userService): View
+    public function index(UserService $userService): View
     {
         $users = $userService->getAllForAdminTable();
 
-        return view('pages.admin.user.index', ['users' => $users]);
+        return view('pages.admin.users.index', ['users' => $users]);
     }
 
     public function clearAuthorisation(User $user, UserService $userService): RedirectResponse
@@ -44,7 +40,9 @@ class UserController extends Controller
      */
     public function edit(User $user): View
     {
-        return view('pages.admin.user.edit', ['user' => $user]);
+        //todo move canAccessApi variable to controller
+        
+        return view('pages.admin.users.edit', ['user' => $user]);
     }
 
     /**

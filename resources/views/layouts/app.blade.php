@@ -39,7 +39,9 @@
         menu.classList.remove('show-menu');
     })
 </script>
+
 @livewireScripts
 @stack('scripts')
+
 </body>
 </html>

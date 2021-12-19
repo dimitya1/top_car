@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Front;
 
 use Illuminate\Contracts\View\View;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
     public function index(): View
     {
-        return view('pages.home');
+        return view('pages.front.home');
     }
 }
