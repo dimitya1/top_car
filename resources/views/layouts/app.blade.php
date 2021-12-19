@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script defer src="{{ asset('js/app.js') }}"></script>
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <!-- Alpine JS -->
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
     <!-- Select2 -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -17,16 +15,19 @@
 
     <title>{{ $pageTitle ?? '' }}</title>
 
+    <!-- livewire -->
     @livewireStyles
+
     @yield('styles')
 </head>
 <body>
+<livewire:toasts />
 
 @yield('content')
 
 @include('layouts.footer')
 
-{{--usermenu scripts--}}
+<!-- usermenu scripts -->
 <script>
     const openButton=document.querySelector('#menu-open');
     const closeButton=document.querySelector('#menu-close');
@@ -41,6 +42,15 @@
 </script>
 
 @livewireScripts
+
+<script>
+    document.addEventListener("alpine:initialized", function () {
+        @foreach($errors->all() as $error)
+            Toast.danger('{{ $error }}');
+        @endforeach
+    })
+</script>
+
 @stack('scripts')
 
 </body>

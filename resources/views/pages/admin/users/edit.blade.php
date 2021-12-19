@@ -26,7 +26,7 @@
                     <input name="new_password" class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="password">
 
                     @php
-                        $hasAccessToAPI = $user->can(\App\Models\Permission::PERMISSION_ACCESS_FOR_DEVELOPERS);
+                        $hasAccessToAPI = $user->can(App\Models\Permission::PERMISSION_ACCESS_FOR_DEVELOPERS);
                     @endphp
                     <label class="inline-flex items-center font-medium mt-2 mb-2">
                         <input type="checkbox" class="form-checkbox" name="permission_access_api" @if($hasAccessToAPI) checked @endif/>

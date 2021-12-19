@@ -104,17 +104,5 @@
                 <a href="{{ route('admin.activity_log.index') }}" class="link">@lang('app.layout.header.menu_list.admin.activity_logs')</a>
             </div>
         @endif
-        @foreach($errors->all() as $error)
-            <x-alert type="danger" :message="$error"/>
-        @endforeach
-        @if (session('successful_login'))
-            <x-alert type="success" :message="session('successful_login')"/>
-        @endif
-        @if (session('successful_registration'))
-            <x-alert type="success" :message="session('successful_registration')"/>
-        @endif
-        @if (session('successful_logout'))
-            <x-alert type="success" :message="session('successful_logout')"/>
-        @endif
     </div>
 </header>

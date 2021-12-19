@@ -75,7 +75,7 @@
                                     </td>
                                     <td class="px-4 py-3 text-ms border">
                                         @php
-                                            use App\Models\Permission;$hasAccessToAPI = (int)$user->can(Permission::PERMISSION_ACCESS_FOR_DEVELOPERS)
+                                            $hasAccessToAPI = (int)$user->can(App\Models\Permission::PERMISSION_ACCESS_FOR_DEVELOPERS);
                                         @endphp
                                         @lang("app.yes_no.$hasAccessToAPI")
                                     </td>
